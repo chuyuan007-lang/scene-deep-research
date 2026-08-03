@@ -215,13 +215,7 @@ body {
   align-self: flex-start;
 }
 
-.sidebar-title {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--text-secondary);
-  letter-spacing: 1px;
-  padding: 0 8px 10px;
-  border-bottom: 1px solid var(--border);
+#newsBtn {
   margin-bottom: 10px;
 }
 
@@ -512,12 +506,6 @@ body {
   border-left: 3px solid var(--accent);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-}
-
-.concept-art {
-  width: 120px;
-  height: 64px;
-  flex-shrink: 0;
 }
 
 .concept-title {
@@ -1097,7 +1085,7 @@ body {
   .sidebar { width: 100%; position: static; }
   .sidebar-nav { flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
   .sidebar-item { width: auto; flex: 1 1 calc(50% - 8px); }
-  .sidebar-title { border-bottom: none; margin-bottom: 4px; padding-bottom: 0; }
+  #newsBtn { margin-bottom: 8px; }
   .sidebar-tip { display: none; }
   .scene-children { flex-basis: 100%; flex-direction: row; flex-wrap: wrap; margin-left: 0; border-left: none; padding-left: 0; }
   .scene-child { width: auto; flex: 1 1 calc(50% - 6px); }
@@ -1190,22 +1178,9 @@ body {
     </div>
   </header>
 
-  <!-- 场景释义（优雅插画 + 定义） -->
+  <!-- 场景释义 -->
   <section class="concept">
     <div class="concept-inner">
-      <svg class="concept-art" viewBox="0 0 120 64" aria-hidden="true">
-        <g fill="none" stroke="#58a6ff" stroke-width="1.6" stroke-linecap="round">
-          <circle cx="20" cy="44" r="9"/>
-          <circle cx="100" cy="44" r="9"/>
-          <path d="M20 35 Q60 6 100 35"/>
-        </g>
-        <g fill="#bc8cff">
-          <circle cx="40" cy="26" r="2.6"/><circle cx="60" cy="20" r="3"/>
-          <circle cx="80" cy="26" r="2.6"/>
-        </g>
-        <text x="20" y="48" text-anchor="middle" font-size="7" fill="#8b949e" font-family="sans-serif">技术</text>
-        <text x="100" y="48" text-anchor="middle" font-size="7" fill="#8b949e" font-family="sans-serif">产业</text>
-      </svg>
       <div class="concept-text-wrap">
         <div class="concept-title">场景的内涵</div>
         <p class="concept-text">场景是用于系统性验证新技术、新产品、新业态产业化应用以及配套基础设施、商业模式、制度政策的具体情境，是连接技术和产业、打通研发和市场的桥梁，是推动科技创新和产业创新融合发展的重要载体，对促进新技术新产品规模化商业化应用具有重要牵引作用。</p>
@@ -1217,7 +1192,12 @@ body {
   <div class="layout">
     <!-- 左侧分类导航 -->
     <aside class="sidebar">
-      <div class="sidebar-title">场景动态持续关注</div>
+      <button class="sidebar-interpret" id="newsBtn" type="button" onclick="selectNewsView()">
+        <span class="side-label">
+          <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></svg>
+          <span>场景动态<br>持续关注</span>
+        </span>
+      </button>
       <nav class="sidebar-nav" id="sidebarNav">
         <!-- 分类由 JS 动态生成 -->
       </nav>
@@ -1228,7 +1208,7 @@ body {
           <span>长城战略咨询<br>深度解读</span>
         </span>
       </button>
-      <div class="sidebar-tip">点击分类切换查看</div>
+      <div class="sidebar-tip">点击上方按钮切换查看</div>
     </aside>
 
     <!-- 右侧内容区 -->
@@ -1317,17 +1297,17 @@ const __INLINE_NEWS__ = {
   "queryDate": "2026-08-02",
   "totalSources": 7,
   "failedSources": 0,
-  "totalItems": 129,
+  "totalItems": 114,
   "filterHint": "每日检索「昨日（2026-08-02）0:00-23:59」官方场景类实际动态，并保留历史往日沉淀；含场景资源 / 需求 / 开放 / 供需对接 / 清单 / 项目 / 政策，不含专家解读类内容",
   "categories": [
     "全部",
-    "场景文件",
-    "场景政策",
     "场景资源",
     "场景需求",
     "场景供需对接",
     "场景清单",
     "场景项目",
+    "支持政策",
+    "场景文件",
     "场景案例"
   ],
   "items": [
@@ -1337,7 +1317,7 @@ const __INLINE_NEWS__ = {
       "summary": "重庆印发行动方案，谋划五方面21个领域重点场景，明确8项重点任务，提出每年打造20个重大场景、举办场景供需对接活动200场以上、开放有效场景机会2000项以上，到2028年基本建成场景创新活力之城。",
       "source": "重庆市人民政府网",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "重庆",
       "regionLevel": "省",
       "link": "https://www.cq.gov.cn/ywdt/jrcq/202605/t20260514_15675272.html",
@@ -1345,8 +1325,7 @@ const __INLINE_NEWS__ = {
       "pubDate": "2026-05-13T00:00:00.000Z",
       "relativeTime": "2个月前",
       "queryDate": "2026-05-13",
-      "lang": "zh",
-      "policyType": "与现有政策体系衔接"
+      "lang": "zh"
     },
     {
       "id": "场景文件-《湖北省加快场景培育与应用实施方案》发布-将每年为企业",
@@ -1354,7 +1333,7 @@ const __INLINE_NEWS__ = {
       "summary": "2025年12月15日 · 12月10日，湖北省人民政府办公厅发布《湖北省加快场景培育与应用实施方案》（以下简称《实施方案》），从打造多层次应用场景、创新场景供给模式、提供关键要素支撑、建立评估机 …",
       "source": "武汉市政府",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "武汉",
       "link": "https://home.wuhan.gov.cn/zcfg/202512/t20251215_2695576.shtml",
       "image": null,
@@ -1362,8 +1341,7 @@ const __INLINE_NEWS__ = {
       "relativeTime": "",
       "queryDate": "2025-12-15",
       "lang": "zh",
-      "regionLevel": "市",
-      "policyType": "其他"
+      "regionLevel": "市"
     },
     {
       "id": "场景文件-北京发布《北京市加快推动场景培育和开放应用工作方案》",
@@ -1371,7 +1349,7 @@ const __INLINE_NEWS__ = {
       "summary": "2026年5月13日 · 政府机构每年开放场景空间资源和场景技术需求不少于五项；引导市属国有企业主动开放主业领域场景；谋划一批跨部门、跨区域、跨领域、全产业链协作的综合性重大场景项目，加速形 …",
       "source": "网易",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "北京",
       "link": "https://www.163.com/dy/article/KSQ3CKA10514R9KQ.html",
       "image": null,
@@ -1379,8 +1357,7 @@ const __INLINE_NEWS__ = {
       "relativeTime": "",
       "queryDate": "2026-05-13",
       "lang": "zh",
-      "regionLevel": "省",
-      "policyType": "鼓励业主单位开放场景"
+      "regionLevel": "省"
     },
     {
       "id": "场景文件-北京发布场景培育开放应用工作方案-五方面18个领域加速新",
@@ -1388,7 +1365,7 @@ const __INLINE_NEWS__ = {
       "summary": "人民网北京5月13日电 (记者池梦蕊)5月13日，北京发布《北京市加快推动场景培育和开放应用工作方案》 (以下简称《工作方案》)，明确围绕首都特色现代化产业体系、扩大内需、城市治理、公共服务、首 …",
       "source": "腾讯新闻",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "北京",
       "link": "https://news.qq.com/rain/a/20260513A05V0E00",
       "image": null,
@@ -1396,8 +1373,7 @@ const __INLINE_NEWS__ = {
       "relativeTime": "",
       "queryDate": "2026-05-13",
       "lang": "zh",
-      "regionLevel": "省",
-      "policyType": "鼓励业主单位开放场景"
+      "regionLevel": "省"
     },
     {
       "id": "场景文件-北京市发展和改革委员会等4部门关于印发北京市加快推动场景",
@@ -1405,7 +1381,7 @@ const __INLINE_NEWS__ = {
       "summary": "2026年5月11日 · 为深入贯彻落实国务院办公厅《关于加快场景培育和开放推动新场景大规模应用的实施意见》（国办发〔2025〕37号）精神，扎实推动科技创新和产业创新深度融合，加快推动本市场景 …",
       "source": "北京市政府",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "北京",
       "link": "https://www.beijing.gov.cn/zhengce/zhengcefagui/202605/t20260514_4650937.html",
       "image": null,
@@ -1413,8 +1389,7 @@ const __INLINE_NEWS__ = {
       "relativeTime": "",
       "queryDate": "2026-05-13",
       "lang": "zh",
-      "regionLevel": "省",
-      "policyType": "其他"
+      "regionLevel": "省"
     },
     {
       "id": "场景文件-北京市加快推动场景培育和开放应用工作方案",
@@ -1422,7 +1397,7 @@ const __INLINE_NEWS__ = {
       "summary": "2026年5月13日 · 为贯彻落实国务院办公厅《关于加快场景培育和开放推动新场景大规模应用的实施意见》( 国办发〔2025〕37 号),系统推动场景培育开放应用,加 速更多新技术、新 产品、新业态在北京率 …",
       "source": "北京市政府",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "北京",
       "link": "https://www.beijing.gov.cn/zhengce/zhengcefagui/202605/W020260514582672176065.pdf",
       "image": null,
@@ -1430,8 +1405,7 @@ const __INLINE_NEWS__ = {
       "relativeTime": "",
       "queryDate": "2026-05-13",
       "lang": "zh",
-      "regionLevel": "省",
-      "policyType": "鼓励业主单位开放场景"
+      "regionLevel": "省"
     },
     {
       "id": "场景文件-北京印发《加快推动场景培育和开放应用工作方案》",
@@ -1439,7 +1413,7 @@ const __INLINE_NEWS__ = {
       "summary": "北京发布工作方案，围绕首都特色现代化产业体系、扩大内需、城市治理、公共服务、首都安全五方面18个领域加速新技术落地，到2028年打造15个以上国家层面标志性重大场景、100个以上市级示范场景、推动200项以上新技术新产品落地。",
       "source": "北京市发展和改革委员会",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "北京",
       "regionLevel": "省",
       "link": "https://bj.people.com.cn/n2/2026/0513/c14540-41579192.html",
@@ -1447,11 +1421,10 @@ const __INLINE_NEWS__ = {
       "pubDate": "2026-05-13T00:00:00.000Z",
       "relativeTime": "2个月前",
       "queryDate": "2026-05-13",
-      "lang": "zh",
-      "policyType": "鼓励业主单位开放场景"
+      "lang": "zh"
     },
     {
-      "id": "场景开放-重庆市人民政府办公厅关于印发《重庆市加快场景培育和开放",
+      "id": "场景文件-重庆市人民政府办公厅关于印发《重庆市加快场景培育和开放",
       "title": "重庆市人民政府办公厅关于印发《重庆市加快场景培育和开放",
       "summary": "2026年5月9日 · 立足重庆“山城”“江城”“智慧名城”特色优势，坚持创新引领、改革推动、因地制宜、安全有序、系统推进、融合发展， …",
       "source": "重庆市政府",
@@ -1467,29 +1440,12 @@ const __INLINE_NEWS__ = {
       "regionLevel": "省"
     },
     {
-      "id": "场景文件-东莞市加快建设\"人工智能+\"城市实施方案(2026—2030年)",
-      "title": "东莞市加快建设\"人工智能+\"城市实施方案(2026—2030年)",
-      "summary": "东莞“人工智能+”新方案出炉！推进AI全域全时全行业应用 --> 检测到您的浏览器版本过低，影响页面体验，请升级到IE9以上版本，或使用谷歌，火狐，360等版本较新的浏览器 东莞“人工智能+”新方案出炉！推进AI全域全时全行业应用 南都N视…",
-      "source": "南方都市报",
-      "sourceUrl": "",
-      "category": "场景政策",
-      "region": "东莞",
-      "link": "https://m.mp.oeeee.com/a/BAAFRD0000202607301635392.html",
-      "image": null,
-      "pubDate": "2026-07-30T00:00:00",
-      "relativeTime": "昨日",
-      "queryDate": "2026-07-30",
-      "lang": "zh",
-      "regionLevel": "市",
-      "policyType": "其他"
-    },
-    {
       "id": "场景文件-东莞印发《加快场景培育和开放-推动\"智创优品、和美宜居\"新场景应用实施方案(2026—2028年)》",
       "title": "东莞印发《加快场景培育和开放 推动\"智创优品、和美宜居\"新场景应用实施方案(2026—2028年)》",
       "summary": "东莞出台2026—2028新场景应用实施方案，聚焦新领域新赛道、产业转型升级、城市智慧治理、社会民生服务四大领域19个方向，力争开放200个以上高价值场景、集聚200个以上优质场景能力。",
       "source": "东莞市人民政府",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "东莞",
       "regionLevel": "市",
       "link": "https://www.dg.gov.cn/zwgk/zfgb/zfgb/2026n/dqq/content/post_4534637.html",
@@ -1497,8 +1453,7 @@ const __INLINE_NEWS__ = {
       "pubDate": "2026-03-22T00:00:00.000Z",
       "relativeTime": "4个月前",
       "queryDate": "2026-03-22",
-      "lang": "zh",
-      "policyType": "其他"
+      "lang": "zh"
     },
     {
       "id": "场景文件-佛山南海区推出应用场景创新三年行动-发布首批场景机会与能力清单",
@@ -1506,7 +1461,7 @@ const __INLINE_NEWS__ = {
       "summary": "佛山市南海区发布《加快推动应用场景创新三年行动方案（2026—2028年）》，明确「五十百千」目标，首批发布20个场景机会和71项场景能力，「蓝海场景」线上平台同步上线，7个应用场景合作项目集中签约。",
       "source": "新浪财经",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "佛山",
       "link": "https://finance.sina.com.cn/roll/2026-07-29/doc-iniknvww9954417.shtml",
       "image": null,
@@ -1514,11 +1469,10 @@ const __INLINE_NEWS__ = {
       "relativeTime": "",
       "queryDate": "2026-07-29",
       "lang": "zh",
-      "regionLevel": "市",
-      "policyType": "与现有政策体系衔接"
+      "regionLevel": "市"
     },
     {
-      "id": "场景开放-关于印发云南省加快场景培育和开放推动新场景大规模应用",
+      "id": "场景文件-关于印发云南省加快场景培育和开放推动新场景大规模应用",
       "title": "关于印发云南省加快场景培育和开放推动新场景大规模应用",
       "summary": "2026年7月2日 · 对标国家场景培育和开放重点领域部署要求，结合云南资源禀赋、产业基础、比较优势，将国家部署重点场景领域， …",
       "source": "云南省发展改革委",
@@ -1534,12 +1488,12 @@ const __INLINE_NEWS__ = {
       "regionLevel": "省"
     },
     {
-      "id": "场景开放-国务院办公厅关于加快场景培育和开放推动新场景大规模应用",
+      "id": "支持政策-国务院办公厅关于加快场景培育和开放推动新场景大规模应用",
       "title": "国务院办公厅关于加快场景培育和开放推动新场景大规模应用",
       "summary": "2025年11月7日 · 以习近平新时代中国特色社会主义思想为指导，深入贯彻党的二十大和二十届历次全会精神，完整准确全面贯彻新发 …",
       "source": "中国政府网",
       "sourceUrl": "",
-      "category": "场景文件",
+      "category": "支持政策",
       "region": "全国",
       "link": "https://www.gov.cn/zhengce/content/202511/content_7047419.htm",
       "image": null,
@@ -1550,7 +1504,7 @@ const __INLINE_NEWS__ = {
       "regionLevel": "国家"
     },
     {
-      "id": "场景开放-杭州市人民政府办公厅印发关于加快场景培育和开放推动新",
+      "id": "场景文件-杭州市人民政府办公厅印发关于加快场景培育和开放推动新",
       "title": "杭州市人民政府办公厅印发关于加快场景培育和开放推动新",
       "summary": "2026年5月28日 · 为加快全市场景培育和开放，推动科技创新和产业创新融合发展，促进新技术新产品规模化商业化应用，根据《国务 …",
       "source": "杭州市政府",
@@ -1571,7 +1525,7 @@ const __INLINE_NEWS__ = {
       "summary": "2025年12月1日 · 《湖北省加快场景培育与应用实施方案》已经省政府同意，现印发给你们，请结合实际认真贯彻落实。 2025年12月1日. （此件删减公开） 湖北省加快场景培育与应用实施方案. 为深入贯 …",
       "source": "澎湃新闻",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "湖北",
       "link": "https://www.thepaper.cn/newsDetail_forward_32179874",
       "image": null,
@@ -1579,11 +1533,10 @@ const __INLINE_NEWS__ = {
       "relativeTime": "",
       "queryDate": "2025-12-15",
       "lang": "zh",
-      "regionLevel": "省",
-      "policyType": "其他"
+      "regionLevel": "省"
     },
     {
-      "id": "场景项目-湖南省人民政府办公厅关于印发《湖南省加快场景创新和大-...",
+      "id": "场景文件-湖南省人民政府办公厅关于印发《湖南省加快场景创新和大",
       "title": "湖南省人民政府办公厅关于印发《湖南省加快场景创新和大",
       "summary": "2026年4月3日 · 各地各有关部门要强化协同配合，加大场景培育和开放力度，结合实际抓好贯彻落实。 省发展改革委要会同有关方面 …",
       "source": "湖南省政府",
@@ -1599,12 +1552,12 @@ const __INLINE_NEWS__ = {
       "regionLevel": "省"
     },
     {
-      "id": "场景文件-南京市加快“人工智能+政务”应用场景建设推进方案",
+      "id": "场景资源-南京市加快“人工智能+政务”应用场景建设推进方案",
       "title": "南京市加快“人工智能+政务”应用场景建设推进方案",
       "summary": "南京市数据局、市城市数字治理中心联合印发推进方案，聚焦政务领域场景，依托市级政务云算力和政务大模型基础能力，推动全市各板块、部门建设政务智能体。到2026年底，市级层面统建一批办公类通用智能体，各区、部门建设N个专业型智能体，吸引参与企业不少于50家。",
       "source": "南京市数据局",
       "sourceUrl": "",
-      "category": "场景文件",
+      "category": "场景资源",
       "region": "南京",
       "regionLevel": "市",
       "link": "https://njsj.nanjing.gov.cn/njszwfwglbgs/202604/t20260402_5817710.html",
@@ -1620,7 +1573,7 @@ const __INLINE_NEWS__ = {
       "summary": "南京市政府办公厅印发《行动方案（2026—2028年）》，分级分类建设综合性重大场景、行业领域集成式场景、高价值小切口场景，到2028年底构建全域场景创新机制，对认定的场景建设任务给予最高500万元支持。",
       "source": "南京市工信局",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "南京",
       "link": "https://gxj.nanjing.gov.cn/njsjjhxxhwyh/202601/t20260128_5781347.html",
       "image": null,
@@ -1628,8 +1581,7 @@ const __INLINE_NEWS__ = {
       "relativeTime": "",
       "queryDate": "2026-01-28",
       "lang": "zh",
-      "regionLevel": "市",
-      "policyType": "与现有政策体系衔接"
+      "regionLevel": "市"
     },
     {
       "id": "场景文件-南京印发《推动新场景规模化应用-高水平打造场景开放之城行动方案(2026—2028年)》",
@@ -1637,7 +1589,7 @@ const __INLINE_NEWS__ = {
       "summary": "南京出台行动方案打造全国领先场景开放之城，到2028年打造10个综合性重大场景、100个行业领域集成式场景，每年发布应用场景清单1000个（机会500、能力300、案例200），累计推动1000个小切口场景规模化应用。",
       "source": "南京市人民政府",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "南京",
       "regionLevel": "市",
       "link": "https://www.nanjing.gov.cn/xxgkn/szgfxwj/202601/t20260121_5774535.html",
@@ -1645,16 +1597,15 @@ const __INLINE_NEWS__ = {
       "pubDate": "2026-01-19T00:00:00.000Z",
       "relativeTime": "6个月前",
       "queryDate": "2026-01-19",
-      "lang": "zh",
-      "policyType": "与现有政策体系衔接"
+      "lang": "zh"
     },
     {
-      "id": "场景文件-内蒙古自治区挖掘和开放应用场景加快新质生产力高质量发展三年行动方案(2026—2028年)",
+      "id": "场景文件-内蒙古自治区挖掘和开放应用场景-加快新质生产力高质量发展三年行动方案(2026—2028年)",
       "title": "内蒙古自治区挖掘和开放应用场景 加快新质生产力高质量发展三年行动方案(2026—2028年)",
       "summary": "内蒙古出台场景三年行动方案，细化实化21个场景挖掘培育重点领域，搭建供需平台、征集发布场景机会清单与能力清单，推动新场景大规模应用。",
       "source": "内蒙古自治区人民政府",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "内蒙古",
       "regionLevel": "省",
       "link": "https://www.nmg.gov.cn/ztzl/zqsk/hmzc/yljk/202607/t20260717_2929824.html",
@@ -1662,8 +1613,7 @@ const __INLINE_NEWS__ = {
       "pubDate": "2026-07-08",
       "relativeTime": "7月8日",
       "queryDate": "2026-07-08",
-      "lang": "zh",
-      "policyType": "鼓励业主单位开放场景"
+      "lang": "zh"
     },
     {
       "id": "场景文件-青岛印发《加快场景创新应用推动新质生产力发展行动方案(2026—2028年)》",
@@ -1671,7 +1621,7 @@ const __INLINE_NEWS__ = {
       "summary": "青岛实施场景创新应用\"十百千\"工程，打造10个以上具有青岛特色的超级场景，累计促进100项以上新技术新产品应用推广、新引进100家以上创新型企业，为1000家以上企业提供全链条场景创新服务。",
       "source": "青岛市人民政府",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "青岛",
       "regionLevel": "市",
       "link": "https://www.qingdao.gov.cn/zwgk/zdgk/fgwj/zcwj/szfgw/202604/t20260410_10560418.shtml",
@@ -1679,11 +1629,10 @@ const __INLINE_NEWS__ = {
       "pubDate": "2026-04-08T00:00:00.000Z",
       "relativeTime": "3个月前",
       "queryDate": "2026-04-08",
-      "lang": "zh",
-      "policyType": "与现有政策体系衔接"
+      "lang": "zh"
     },
     {
-      "id": "场景开放-厦门市人民政府办公厅关于印发《厦门市加快场景培育和开放",
+      "id": "场景文件-厦门市人民政府办公厅关于印发《厦门市加快场景培育和开放",
       "title": "厦门市人民政府办公厅关于印发《厦门市加快场景培育和开放",
       "summary": "2026年4月15日 · 开展场景创新制度体系研究，推动场景培育开放与现有创新支持政策有效衔接；发挥财政资金引导作用，探索合作创 …",
       "source": "厦门市政府",
@@ -1704,7 +1653,7 @@ const __INLINE_NEWS__ = {
       "summary": "厦门出台实施方案，2026—2028每年策划场景300个、形成有效场景机会200个、推动100个应用场景落地，打造\"厦门场景\"品牌，建设综合性场景园区与统一场景供需对接平台。",
       "source": "厦门市人民政府办公厅",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "厦门",
       "regionLevel": "市",
       "link": "https://gxt.fujian.gov.cn/zwgk/xw/hydt/snhydt/202604/t20260403_7118989.htm",
@@ -1712,8 +1661,7 @@ const __INLINE_NEWS__ = {
       "pubDate": "2026-04-03T00:00:00.000Z",
       "relativeTime": "3个月前",
       "queryDate": "2026-04-03",
-      "lang": "zh",
-      "policyType": "其他"
+      "lang": "zh"
     },
     {
       "id": "场景文件-陕西省发展和改革委员会等四部门关于印发陕西省加快场景培育和开放推动新场景大规模应用实施方案的通知",
@@ -1721,7 +1669,7 @@ const __INLINE_NEWS__ = {
       "summary": "陕西省发改委等四部门印发《陕西省加快场景培育和开放推动新场景大规模应用实施方案》，围绕公共场景开放、企业场景潜能、社会场景挖掘及三类标杆示范场景作出系统部署。",
       "source": "陕西省发展改革委",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "陕西",
       "regionLevel": "省",
       "link": "https://sndrc.shaanxi.gov.cn/zfxxgk/zc/fgwj/sfzggwwj/2026/202604/t20260421_3631617.html",
@@ -1729,25 +1677,7 @@ const __INLINE_NEWS__ = {
       "pubDate": "2026-04-21T00:00:00",
       "relativeTime": "近日",
       "queryDate": "2026-04-21",
-      "lang": "zh",
-      "policyType": "其他"
-    },
-    {
-      "id": "场景文件-上海市促进赛事经济高质量发展行动方案(2026—2028年)",
-      "title": "上海市促进赛事经济高质量发展行动方案(2026—2028年)",
-      "summary": "上海市统一政策发布平台_上海市人民政府 政策发布…",
-      "source": "上海市政府",
-      "sourceUrl": "",
-      "category": "场景政策",
-      "region": "上海",
-      "link": "https://www.shanghai.gov.cn/zhengce/detail?businessId=b6e7b14fb36e4142a202ad741249334b&siteId=0001",
-      "image": null,
-      "pubDate": "2026-07-30T00:00:00",
-      "relativeTime": "昨日",
-      "queryDate": "2026-07-30",
-      "lang": "zh",
-      "regionLevel": "省",
-      "policyType": "与现有政策体系衔接"
+      "lang": "zh"
     },
     {
       "id": "场景文件-市政府办公室印发《关于推进场景建设加快发展新质生产力的",
@@ -1771,7 +1701,7 @@ const __INLINE_NEWS__ = {
       "summary": "2025年12月13日 · 12月10日，湖北省人民政府办公厅发布《湖北省加快场景培育与应用实施方案》（以下简称《实施方案》），从打造多层次应用场景、创新场景供给模式、提供关键要素支撑、建立评估机 …",
       "source": "搜狐",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "湖北",
       "link": "https://www.sohu.com/a/964749800_480400",
       "image": null,
@@ -1779,16 +1709,15 @@ const __INLINE_NEWS__ = {
       "relativeTime": "",
       "queryDate": "2025-12-13",
       "lang": "zh",
-      "regionLevel": "省",
-      "policyType": "其他"
+      "regionLevel": "省"
     },
     {
-      "id": "场景资源-西安市人民政府办公厅关于印发加快场景培育和开放推动新",
+      "id": "场景文件-西安市人民政府办公厅关于印发加快场景培育和开放推动新",
       "title": "西安市人民政府办公厅关于印发加快场景培育和开放推动新",
       "summary": "2026年7月15日 · 各区、县人民政府，市人民政府各工作部门、各直属机构： 《西安市加快场景培育和开放推动新场景大规模应用实施方案》已经市政府同意，现印发给你们，请认真贯彻执行。 西安市人 …",
       "source": "西安市发展改革委",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "西安",
       "link": "https://xadrc.xa.gov.cn/xxgk/zfwj/bmwj/2077198025722716162.html",
       "image": null,
@@ -1796,8 +1725,7 @@ const __INLINE_NEWS__ = {
       "relativeTime": "15天前",
       "queryDate": "2026-07-15",
       "lang": "zh",
-      "regionLevel": "市",
-      "policyType": "其他"
+      "regionLevel": "市"
     },
     {
       "id": "场景文件-西安市印发加快场景培育和开放推动新场景大规模应用实施方案-推出首批33项应用场景机会清单",
@@ -1805,7 +1733,7 @@ const __INLINE_NEWS__ = {
       "summary": "西安市印发《加快场景培育和开放推动新场景大规模应用实施方案》并推出首批33项开放应用场景机会清单，以「方案+清单」模式打通成果转化通道，聚焦科技创新、产业强链、消费升级、社会民生四大领域。",
       "source": "西安市发展改革委",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "西安",
       "link": "https://xadrc.xa.gov.cn/xxgk/xwfb/2082271639493447682.html",
       "image": null,
@@ -1813,11 +1741,10 @@ const __INLINE_NEWS__ = {
       "relativeTime": "",
       "queryDate": "2026-07-29",
       "lang": "zh",
-      "regionLevel": "市",
-      "policyType": "鼓励业主单位开放场景"
+      "regionLevel": "市"
     },
     {
-      "id": "场景开放-浙江加快新场景建设应用",
+      "id": "场景文件-浙江加快新场景建设应用",
       "title": "浙江加快新场景建设应用",
       "summary": "2026年5月11日 · 场景是连接技术和产业、打通研发和市场的桥梁。日前，浙江印发《浙江省加快新场景建设应用 推动科技和产业高质 …",
       "source": "浙江省政府",
@@ -1833,352 +1760,156 @@ const __INLINE_NEWS__ = {
       "regionLevel": "省"
     },
     {
-      "id": "场景政策-安徽省加快场景创新构建全省应用场景一体化大市场行动方案（2023-202",
+      "id": "场景文件-《安徽省加快场景创新构建全省应用场景一体化大市场行动方案（2023-2025年）》",
       "title": "《安徽省加快场景创新构建全省应用场景一体化大市场行动方案（2023-2025年）》",
       "summary": "安徽出台加快场景创新构建全省应用场景一体化大市场行动方案，统筹场景开放与风险监管。",
       "source": "安徽省科学技术厅",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "安徽",
       "regionLevel": "省",
-      "policyType": "合理管理创新风险",
       "link": "https://kjt.ah.gov.cn/kjzx/tzgg/121629691.html",
       "image": null,
       "pubDate": "2023-06-05T00:00:00.000Z",
       "relativeTime": "3年前",
-      "queryDate": "2026-07-31",
+      "queryDate": "2023-06-05",
       "lang": "zh"
     },
     {
-      "id": "场景政策-北京市机器人产业创新发展行动方案（2023-2025年）",
-      "title": "《北京市机器人产业创新发展行动方案（2023-2025年）》",
-      "summary": "北京出台机器人产业创新发展行动方案，推动机器人场景应用与现有产业政策衔接。（京政办发〔2023〕17号）",
-      "source": "北京市人民政府办公厅",
-      "sourceUrl": "",
-      "category": "场景政策",
-      "region": "北京",
-      "regionLevel": "市",
-      "policyType": "与现有政策体系衔接",
-      "link": "https://www.beijing.gov.cn/gate/big5/www.beijing.gov.cn/zhengce/gfxwj/sj/202306/t20230628_3148572.html",
-      "image": null,
-      "pubDate": "2023-06-16T00:00:00.000Z",
-      "relativeTime": "3年前",
-      "queryDate": "2026-07-31",
-      "lang": "zh"
-    },
-    {
-      "id": "场景政策-成都高新区政府投资项目科技篇总体工作指引（试行）",
-      "title": "《成都高新区政府投资项目\"科技篇\"总体工作指引（试行）》",
-      "summary": "成都高新区在政府投资项目中设置\"科技篇\"，要求业主单位在项目中开放和嵌入科技应用场景。",
-      "source": "成都高新区",
-      "sourceUrl": "",
-      "category": "场景政策",
-      "region": "成都",
-      "regionLevel": "市",
-      "policyType": "鼓励业主单位开放场景",
-      "link": "https://sc.news.cn/20250415/26ec25217cce4160a177d890db2e6fd6/c.html",
-      "image": null,
-      "pubDate": "2025-04-15T00:00:00.000Z",
-      "relativeTime": "1年前",
-      "queryDate": "2026-07-31",
-      "lang": "zh"
-    },
-    {
-      "id": "场景政策-广东省加快应用场景创新工作方案（加快应用场景创新推动产业科技互促双强行动",
+      "id": "场景文件-《广东省加快应用场景创新工作方案》（加快应用场景创新推动产业科技互促双强行动方案）",
       "title": "《广东省加快应用场景创新工作方案》（加快应用场景创新推动产业科技互促双强行动方案）",
       "summary": "广东出台加快应用场景创新工作方案（即\"加快应用场景创新推动产业科技互促双强行动方案\"），推行柔性监管和沙盒监管等新型监管制度，合理管理创新风险。（粤发改体改〔2026〕72号）",
       "source": "广东省发展改革委",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "广东",
       "regionLevel": "省",
-      "policyType": "合理管理创新风险",
       "link": "https://www.gd.gov.cn/gdywdt/zwzt/rgznjqr/zcwj/content/post_4873889.html",
       "image": null,
       "pubDate": "2026-03-06T00:00:00.000Z",
       "relativeTime": "4个月前",
-      "queryDate": "2026-07-31",
+      "queryDate": "2026-03-06",
       "lang": "zh"
     },
     {
-      "id": "场景政策-广州市推动低空经济高质量发展若干措施",
-      "title": "《广州市推动低空经济高质量发展若干措施》",
-      "summary": "广州出台低空经济 20 条，支持低空经济主体、基础设施与应用场景，与现有产业政策衔接。（穗府办函〔2024〕47号）",
-      "source": "广州市人民政府办公厅",
-      "sourceUrl": "",
-      "category": "场景政策",
-      "region": "广州",
-      "regionLevel": "市",
-      "policyType": "与现有政策体系衔接",
-      "link": "https://sw.gz.gov.cn/xxgk/zcfg/xxfg/cyzc/content/post_9745398.html",
-      "image": null,
-      "pubDate": "2024-07-03T00:00:00.000Z",
-      "relativeTime": "2年前",
-      "queryDate": "2026-07-31",
-      "lang": "zh"
-    },
-    {
-      "id": "场景政策-杭州市加快建设人工智能创新高地实施方案（2025年版）",
-      "title": "《杭州市加快建设人工智能创新高地实施方案（2025年版）》",
-      "summary": "杭州 2025 版方案提出建设人工智能创新高地，部署一批重大应用场景与示范项目。（杭政函〔2025〕65号）",
-      "source": "杭州市人民政府",
-      "sourceUrl": "",
-      "category": "场景政策",
-      "region": "杭州",
-      "regionLevel": "市",
-      "policyType": "支持场景示范项目",
-      "link": "https://z.hangzhou.com.cn/2020/hzrmzfgb/content/content_9047168.html",
-      "image": null,
-      "pubDate": "2025-06-13T00:00:00.000Z",
-      "relativeTime": "1年前",
-      "queryDate": "2026-07-31",
-      "lang": "zh"
-    },
-    {
-      "id": "场景政策-杭州市建设国家新一代人工智能创新发展试验区若干政策",
-      "title": "《杭州市建设国家新一代人工智能创新发展试验区若干政策》",
-      "summary": "杭州发布试验区若干政策，支持人工智能应用场景建设、示范项目落地与产业集聚。（杭政函〔2019〕114号；注：该文号已失效，政策精神延续至 2025 版方案）",
-      "source": "杭州市人民政府",
-      "sourceUrl": "",
-      "category": "场景政策",
-      "region": "杭州",
-      "regionLevel": "市",
-      "policyType": "支持场景示范项目",
-      "link": "https://www.hangzhou.gov.cn/art/2019/12/19/art_1229063381_460950.html",
-      "image": null,
-      "pubDate": "2019-12-12T00:00:00.000Z",
-      "relativeTime": "6年前",
-      "queryDate": "2026-07-31",
-      "lang": "zh"
-    },
-    {
-      "id": "场景政策-合肥市场景解决方案目录及推广应用实施方案（试行）",
+      "id": "场景文件-《合肥市场景解决方案目录及推广应用实施方案（试行）》",
       "title": "《合肥市场景解决方案目录及推广应用实施方案（试行）》",
       "summary": "合肥发布场景解决方案目录及推广应用实施方案，鼓励业主单位开放场景、发布需求，推动解决方案落地。（合科〔2026〕23号）",
       "source": "合肥市科学技术局",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "合肥",
       "regionLevel": "市",
-      "policyType": "鼓励业主单位开放场景",
       "link": "https://www.hefei.gov.cn/zwgk/public/content/111675839",
       "image": null,
       "pubDate": "2026-03-11T00:00:00.000Z",
       "relativeTime": "4个月前",
-      "queryDate": "2026-07-31",
+      "queryDate": "2026-03-11",
       "lang": "zh"
     },
     {
-      "id": "场景政策-合肥市场景实验室招募和管理工作办法（试行）",
+      "id": "场景文件-《合肥市场景实验室招募和管理工作办法（试行）》",
       "title": "《合肥市场景实验室招募和管理工作办法（试行）》",
       "summary": "合肥发布场景实验室招募与管理办法，支持建设场景实验室、培育场景创新生态。（2025年度第一批，2026年第二批公示）",
       "source": "合肥市",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "合肥",
       "regionLevel": "市",
-      "policyType": "支持场景生态建设",
       "link": "https://www.ichuanghui.org/10429.html",
       "image": null,
       "pubDate": "2026-02-25T00:00:00.000Z",
       "relativeTime": "5个月前",
-      "queryDate": "2026-07-31",
+      "queryDate": "2026-02-25",
       "lang": "zh"
     },
     {
-      "id": "场景政策-嘉兴市新兴技术新产品新场景大规模应用示范行动方案（2025-2027年）",
+      "id": "场景文件-《嘉兴市新兴技术新产品新场景大规模应用示范行动方案（2025-2027年）》",
       "title": "《嘉兴市新兴技术新产品新场景大规模应用示范行动方案（2025-2027年）》",
       "summary": "嘉兴出台新技术新产品新场景大规模应用示范行动方案，实施\"百千万\"工程，与现有政策体系衔接。（嘉政办发〔2025〕17号）",
       "source": "嘉兴市人民政府办公室",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "嘉兴",
       "regionLevel": "市",
-      "policyType": "与现有政策体系衔接",
       "link": "https://www.jiaxing.gov.cn/art/2025/7/1/art_1229883789_2107.html",
       "image": null,
       "pubDate": "2025-07-01T00:00:00.000Z",
       "relativeTime": "1年前",
-      "queryDate": "2026-07-31",
+      "queryDate": "2025-07-01",
       "lang": "zh"
     },
     {
-      "id": "场景政策-南通市支持人工智能领域人才高质量发展若干措施",
-      "title": "《南通市支持人工智能领域人才高质量发展若干措施》",
-      "summary": "南通出台人工智能领域人才支持措施，以人才政策撬动场景示范与产业落地。",
-      "source": "南通市人民政府",
-      "sourceUrl": "",
-      "category": "场景政策",
-      "region": "南通",
-      "regionLevel": "市",
-      "policyType": "支持场景示范项目",
-      "link": "https://one.haimen.gov.cn/ndaservplat/Apps/psp/index.php?s=/PolicySearch/policydetail/id/112616",
-      "image": null,
-      "pubDate": "2025-07-12T00:00:00.000Z",
-      "relativeTime": "1年前",
-      "queryDate": "2026-07-31",
-      "lang": "zh"
-    },
-    {
-      "id": "场景政策-青岛市场景应用实验室认定管理办法",
+      "id": "场景文件-《青岛市场景应用实验室认定管理办法》",
       "title": "《青岛市场景应用实验室认定管理办法》",
       "summary": "青岛出台场景应用实验室认定管理办法，以实验室为载体培育场景创新生态。（2023年征求意见稿，有效期至 2026-08-05）",
       "source": "青岛市发展改革委",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "青岛",
       "regionLevel": "市",
-      "policyType": "支持场景生态建设",
       "link": "http://dpc.qingdao.gov.cn/tzgg_45/202304/P020230427787317832557.pdf",
       "image": null,
       "pubDate": "2023-04-01T00:00:00.000Z",
       "relativeTime": "3年前",
-      "queryDate": "2026-07-31",
+      "queryDate": "2023-04-01",
       "lang": "zh"
     },
     {
-      "id": "场景政策-青岛市科技成果应用场景示范项目奖补实施细则（试行）",
+      "id": "场景文件-《青岛市科技成果应用场景示范项目奖补实施细则（试行）》",
       "title": "《青岛市科技成果应用场景示范项目奖补实施细则（试行）》",
       "summary": "青岛出台细则，对科技成果应用场景示范项目给予奖补，鼓励企事业单位开放场景、开展应用示范，推动新技术新产品迭代推广。（青科字〔2023〕9号）",
       "source": "青岛市科学技术局",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "青岛",
       "regionLevel": "市",
-      "policyType": "支持场景示范项目",
       "link": "https://www.qingdao.gov.cn/zwgk/xxgk/kjj/gkml/gwfg/202307/t20230704_7274044.shtml",
       "image": null,
       "pubDate": "2023-07-04T00:00:00.000Z",
       "relativeTime": "3年前",
-      "queryDate": "2026-07-31",
+      "queryDate": "2023-07-04",
       "lang": "zh"
     },
     {
-      "id": "场景政策-山东省加快场景创新引领十强产业高质量发展行动计划（2025-2027年）",
+      "id": "场景文件-《山东省加快场景创新引领\"十强产业\"高质量发展行动计划（2025-2027年）》",
       "title": "《山东省加快场景创新引领\"十强产业\"高质量发展行动计划（2025-2027年）》",
       "summary": "山东出台加快场景创新引领\"十强产业\"高质量发展行动计划，统筹场景创新与风险防范，合理管理创新风险。",
       "source": "山东省绿色低碳高质量发展先行区建设领导小组办公室",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "山东",
       "regionLevel": "省",
-      "policyType": "合理管理创新风险",
       "link": "http://www.shandong.gov.cn/jpolicypub/jpolicy_file/filedata/2024/10/29/fd70ea84fd3546f8a736f56c06b9e186.pdf",
       "image": null,
       "pubDate": "2024-10-29T00:00:00.000Z",
       "relativeTime": "1年前",
-      "queryDate": "2026-07-31",
+      "queryDate": "2024-10-29",
       "lang": "zh"
     },
     {
-      "id": "场景政策-苏州市高水平建设人工智能+创新发展试验区的若干措施",
-      "title": "《苏州市高水平建设\"人工智能+\"创新发展试验区的若干措施》",
-      "summary": "苏州出台措施高水平建设\"人工智能+\"试验区，鼓励开放应用场景、支持供需对接。（苏府规字〔2025〕5号）",
-      "source": "苏州市人民政府",
-      "sourceUrl": "",
-      "category": "场景政策",
-      "region": "苏州",
-      "regionLevel": "市",
-      "policyType": "鼓励业主单位开放场景",
-      "link": "https://www.suzhou.gov.cn/szsrmzf/gbzfgfxwj/202504/22f8bd594529468e8af404bd99fe3f27.shtml",
-      "image": null,
-      "pubDate": "2025-02-13T00:00:00.000Z",
-      "relativeTime": "1年前",
-      "queryDate": "2026-07-31",
-      "lang": "zh"
-    },
-    {
-      "id": "场景政策-苏州市支持具身智能机器人产业创新发展的若干措施",
-      "title": "《苏州市支持具身智能机器人产业创新发展的若干措施》",
-      "summary": "苏州出台措施支持具身智能机器人产业创新发展，衔接现有机器人产业政策体系。（苏府规字〔2025〕7号）",
-      "source": "苏州市人民政府",
-      "sourceUrl": "",
-      "category": "场景政策",
-      "region": "苏州",
-      "regionLevel": "市",
-      "policyType": "与现有政策体系衔接",
-      "link": "https://sst.suzhou.gov.cn/ndaservplat/Apps/psp/index.php?s=/Home/PolicySearch/policydetail/id/113033",
-      "image": null,
-      "pubDate": "2025-04-11T00:00:00.000Z",
-      "relativeTime": "1年前",
-      "queryDate": "2026-07-31",
-      "lang": "zh"
-    },
-    {
-      "id": "场景政策-推动智能机器人产业创新发展若干政策措施（东莞）",
-      "title": "《推动智能机器人产业创新发展若干政策措施》（东莞）",
-      "summary": "东莞出台智能机器人产业创新发展政策措施，衔接现有产业政策体系。",
-      "source": "东莞市工业和信息化局",
-      "sourceUrl": "",
-      "category": "场景政策",
-      "region": "东莞",
-      "regionLevel": "市",
-      "policyType": "与现有政策体系衔接",
-      "link": "https://im.dg.gov.cn/gkmlpt/content/4/4374/mpost_4374645.html",
-      "image": null,
-      "pubDate": "2025-04-23T00:00:00.000Z",
-      "relativeTime": "1年前",
-      "queryDate": "2026-07-31",
-      "lang": "zh"
-    },
-    {
-      "id": "场景政策-徐州市加快推进低空+场景应用创新行动方案",
+      "id": "场景文件-《徐州市加快推进\"低空+\"场景应用创新行动方案》",
       "title": "《徐州市加快推进\"低空+\"场景应用创新行动方案》",
       "summary": "徐州出台\"低空+\"场景应用创新行动方案，将低空经济场景与现有产业政策体系衔接推进。",
       "source": "徐州市人民政府",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "徐州",
       "regionLevel": "市",
-      "policyType": "与现有政策体系衔接",
       "link": "https://xz.gov.cn/govxxgk/014051247/2024-12-20/1e1ee7dc-7370-4d2c-bd32-2a9ffa8c29d0.html",
       "image": null,
       "pubDate": "2024-12-20T00:00:00.000Z",
       "relativeTime": "1年前",
-      "queryDate": "2026-07-31",
+      "queryDate": "2024-12-20",
       "lang": "zh"
     },
     {
-      "id": "场景政策-长沙市加快人工智能产业高质量发展若干政策",
-      "title": "《长沙市加快人工智能产业高质量发展若干政策》",
-      "summary": "长沙出台人工智能产业高质量发展若干政策，设\"支持应用场景拓展\"条款，每年择优评选\"人工智能+\"标杆型场景给予最高 100 万元奖励。",
-      "source": "长沙市人民政府办公室",
-      "sourceUrl": "",
-      "category": "场景政策",
-      "region": "长沙",
-      "regionLevel": "市",
-      "policyType": "与现有政策体系衔接",
-      "link": "http://www.changsha.gov.cn/zfxxgk/zfwjk/szfbgt/202512/t20251226_12135846.html",
-      "image": null,
-      "pubDate": "2025-12-26T00:00:00.000Z",
-      "relativeTime": "7个月前",
-      "queryDate": "2026-07-31",
-      "lang": "zh"
-    },
-    {
-      "id": "场景政策-支持人工智能创新发展若干政策措施（郑州）",
-      "title": "《支持人工智能创新发展若干政策措施》（郑州）",
-      "summary": "郑州出台支持人工智能创新发展若干政策措施，衔接现有产业政策体系。（郑政文〔2024〕62号）",
-      "source": "郑州市人民政府",
-      "sourceUrl": "",
-      "category": "场景政策",
-      "region": "郑州",
-      "regionLevel": "市",
-      "policyType": "与现有政策体系衔接",
-      "link": "https://public.zhengzhou.gov.cn/D0102X/8431444.jhtml",
-      "image": null,
-      "pubDate": "2024-05-22T00:00:00.000Z",
-      "relativeTime": "2年前",
-      "queryDate": "2026-07-31",
-      "lang": "zh"
-    },
-    {
-      "id": "场景政策-【第七十四期】场景培育：连接技术与生活的创新新引擎",
+      "id": "支持政策-【第七十四期】场景培育：连接技术与生活的创新新引擎",
       "title": "【第七十四期】场景培育：连接技术与生活的创新新引擎",
       "summary": "2025年11月20日 · 场景培育是为新技术、新产品、新业态构建的系统性应用验证与落地情境，核心是通过“硬验证+软验证”的体系化“社会性中试”，打通技术研发与市场应用的断层。 场景培育本质是一种综合 …",
       "source": "搜狐",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "支持政策",
       "region": "其他",
       "link": "https://www.sohu.com/a/956487420_121123904",
       "image": null,
@@ -2186,16 +1917,15 @@ const __INLINE_NEWS__ = {
       "relativeTime": "",
       "queryDate": "2025-11-20",
       "lang": "zh",
-      "regionLevel": "其他",
-      "policyType": "支持场景生态建设"
+      "regionLevel": "其他"
     },
     {
-      "id": "场景开放-【江苏推出18条举措加快场景培育和开放】-国家发展和改革",
+      "id": "支持政策-【江苏推出18条举措加快场景培育和开放】",
       "title": "【江苏推出18条举措加快场景培育和开放】",
       "summary": "2026年7月22日 · 《江苏省场景培育指引（试行）》和《江苏省多元主体场景开放指引（试行）》同步印发。培育指引围绕新领域新赛 …",
       "source": "国家发展改革委",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "支持政策",
       "region": "江苏",
       "link": "https://www.ndrc.gov.cn/xwdt/dt/dfdt/202607/t20260722_1406619.html",
       "image": null,
@@ -2203,16 +1933,15 @@ const __INLINE_NEWS__ = {
       "relativeTime": "8天前",
       "queryDate": "2026-07-22",
       "lang": "zh",
-      "regionLevel": "省",
-      "policyType": "鼓励业主单位开放场景"
+      "regionLevel": "省"
     },
     {
-      "id": "场景政策-不抢饭碗,只当帮手!4D场景+应用服务商,北京出招专治机器人“进",
+      "id": "场景文件-不抢饭碗,只当帮手!4D场景+应用服务商,北京出招专治机器人“进",
       "title": "不抢饭碗,只当帮手!4D场景+应用服务商,北京出招专治机器人“进",
       "summary": "\n                    也计划把应用服务商培育和场景开放写进“任务书”. 从“能跑能跳”到“能用好用”,从“技术惊艳”到“价值兑现”——北京想要的,不是一个只在展厅里...\n                ",
       "source": "新浪网",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "北京",
       "regionLevel": "省",
       "link": "https://news.sogou.com/link?url=hedJjaC291MSNWqgjh34vljpXp0hu3m0LEg2FsOZOGV-5hCSCThux0hbNgOXRXTPZHBarfdP8F-KucU1FF26o7bAp6VRqT6Q",
@@ -2220,16 +1949,15 @@ const __INLINE_NEWS__ = {
       "pubDate": "2026-07-31T00:00:00",
       "relativeTime": "2天前",
       "queryDate": "2026-07-31",
-      "lang": "zh",
-      "policyType": "鼓励业主单位开放场景"
+      "lang": "zh"
     },
     {
-      "id": "场景项目-关于组织申报2026年省预算内基本建设投资应用场景培育和-...",
+      "id": "支持政策-关于组织申报2026年省预算内基本建设投资应用场景培育和",
       "title": "关于组织申报2026年省预算内基本建设投资应用场景培育和",
       "summary": "2026年6月15日 · 支持市、县深入挖掘地方特色产业、特色资源，聚焦重点项目、重大产业、重大活动等谋划开放场景项目，组织相关 …",
       "source": "湖南省发展改革委",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "支持政策",
       "region": "湖南",
       "link": "https://fgw.hunan.gov.cn/fgw/xxgk_70899/tzgg/202606/t20260615_34002172.html",
       "image": null,
@@ -2237,33 +1965,31 @@ const __INLINE_NEWS__ = {
       "relativeTime": "1个月前",
       "queryDate": "2026-06-15",
       "lang": "zh",
-      "regionLevel": "省",
-      "policyType": "鼓励业主单位开放场景"
+      "regionLevel": "省"
     },
     {
-      "id": "场景政策-济南设立场景智造基金",
+      "id": "场景资源-济南设立\"场景智造基金\"",
       "title": "济南设立\"场景智造基金\"",
       "summary": "济南设立 5000 万元规模\"场景智造基金\"，围绕数字场景创新、科技成果转化等开展投资，支持场景落地建设。（2023年11月设立）",
       "source": "济南市（山东省发展改革委转载）",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景资源",
       "region": "济南",
       "regionLevel": "市",
-      "policyType": "支持场景生态建设",
       "link": "http://bdb.shandong.gov.cn/art/2024/11/15/art_76148_10331359.html",
       "image": null,
       "pubDate": "2023-11-25T00:00:00.000Z",
       "relativeTime": "2年前",
-      "queryDate": "2026-07-31",
+      "queryDate": "2023-11-25",
       "lang": "zh"
     },
     {
-      "id": "场景开放-李春临副主任出席国新办“介绍加快场景培育和开放推动新场景",
+      "id": "支持政策-李春临副主任出席国新办“介绍加快场景培育和开放推动新场景",
       "title": "李春临副主任出席国新办“介绍加快场景培育和开放推动新场景",
       "summary": "2025年11月10日 · 为深入贯彻落实党的二十届四中全会关于加大应用场景建设和开放力度，实施新技术新产品新场景大规模应用示范 …",
       "source": "国家发展改革委",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "支持政策",
       "region": "全国",
       "link": "https://www.ndrc.gov.cn/fzggw/wld/lichunlin/zyhd/202511/t20251110_1401486.html",
       "image": null,
@@ -2271,67 +1997,47 @@ const __INLINE_NEWS__ = {
       "relativeTime": "8个月前",
       "queryDate": "2025-11-10",
       "lang": "zh",
-      "regionLevel": "国家",
-      "policyType": "支持场景示范项目"
+      "regionLevel": "国家"
     },
     {
-      "id": "场景政策-南京设立南京市场景基金（全国首支）",
+      "id": "场景资源-南京设立\"南京市场景基金\"（全国首支）",
       "title": "南京设立\"南京市场景基金\"（全国首支）",
       "summary": "南京设立全国首支\"南京市场景基金\"，首期规模 2 亿元，以基金化方式支持场景创新与生态建设。",
       "source": "江苏省国资委",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景资源",
       "region": "南京",
       "regionLevel": "市",
-      "policyType": "支持场景生态建设",
       "link": "https://jsgzw.jiangsu.gov.cn/art/2025/1/16/art_11704_11471921.html",
       "image": null,
       "pubDate": "2025-01-16T00:00:00.000Z",
       "relativeTime": "1年前",
-      "queryDate": "2026-07-31",
+      "queryDate": "2025-01-16",
       "lang": "zh"
     },
     {
-      "id": "场景政策-青岛全国率先创新设立场景金",
+      "id": "支持政策-青岛全国率先创新设立\"场景金\"",
       "title": "青岛全国率先创新设立\"场景金\"",
       "summary": "青岛全国率先设立\"场景金\"，以财政资金撬动社会资本，支持场景应用与生态建设。",
       "source": "青岛市财政局",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "支持政策",
       "region": "青岛",
       "regionLevel": "市",
-      "policyType": "支持场景生态建设",
       "link": "https://www.qingdao.gov.cn/zwgk/xxgk/czj/gkml/gzxx/202311/t20231128_7675932.shtml",
       "image": null,
       "pubDate": "2023-11-01T00:00:00.000Z",
       "relativeTime": "2年前",
-      "queryDate": "2026-07-31",
+      "queryDate": "2023-11-01",
       "lang": "zh"
     },
     {
-      "id": "场景政策-四部门印发《关于促进人工智能与能源双向赋能的行动方案》",
-      "title": "四部门印发《关于促进人工智能与能源双向赋能的行动方案》",
-      "summary": "国家发改委、国家能源局、工信部、国家数据局印发行动方案，部署29项任务促进AI与能源双向赋能，推动算力设施绿色低碳转型、算电协同与绿电直供。",
-      "source": "国家发展和改革委员会",
-      "sourceUrl": "",
-      "category": "场景政策",
-      "region": "国家",
-      "regionLevel": "国家",
-      "link": "https://www.ndrc.gov.cn/wsdwhfz/202605/t20260515_1405213.html",
-      "image": null,
-      "pubDate": "2026-05-15T00:00:00.000Z",
-      "relativeTime": "2个月前",
-      "queryDate": "2026-05-15",
-      "lang": "zh",
-      "policyType": "与现有政策体系衔接"
-    },
-    {
-      "id": "场景开放-《场景创新》杂志",
+      "id": "场景案例-《场景创新》杂志",
       "title": "《场景创新》杂志",
       "summary": "2026年3月24日 · 中国科技网是以科技新闻和信息传播为主业的综合性网络媒体。 2010年，中央外宣办核准网站名称为“中国科技网”，并视同国家重点新闻网站进行管理，日均网页访问量达百万级别。",
       "source": "科技日报",
       "sourceUrl": "",
-      "category": "场景资源",
+      "category": "场景案例",
       "region": "全国",
       "link": "https://www.stdaily.com/web/cjgxdj/node_1222.html",
       "image": null,
@@ -2358,12 +2064,12 @@ const __INLINE_NEWS__ = {
       "regionLevel": "市"
     },
     {
-      "id": "场景资源-上海全球投资促进大会发布31项新质要素-含10大标杆应用场景",
+      "id": "场景文件-上海全球投资促进大会发布31项新质要素-含10大标杆应用场景",
       "title": "上海全球投资促进大会发布31项新质要素 含10大标杆应用场景",
       "summary": "2026上海全球投资促进大会集中发布31项新质要素，聚焦公共服务、研发中试、应用场景3大领域，其中10大标杆应用场景包括全国首个全栈人形机器人开源训练场、AI+智慧空港无人化作业等。",
       "source": "上海证券报",
       "sourceUrl": "",
-      "category": "场景资源",
+      "category": "场景文件",
       "region": "上海",
       "regionLevel": "省",
       "link": "https://m.sohu.com/a/996533715_120988576",
@@ -2422,7 +2128,7 @@ const __INLINE_NEWS__ = {
       "regionLevel": "市"
     },
     {
-      "id": "场景供需对接-场景驱动-智启未来！盐田区政务应用场景供需对接会搭建政企-...",
+      "id": "场景供需对接-场景驱动-智启未来！盐田区政务应用场景供需对接会搭建政企",
       "title": "场景驱动 智启未来！盐田区政务应用场景供需对接会搭建政企",
       "summary": "2025年10月27日 · 作为深圳东部滨海创新高地，盐田区正以场景创新为抓手，积极构建“需求牵引场景、场景驱动发展”的良性循环。 此次对接会不仅是一次供需信息的精准匹配，更是一次政企协同创新的 …",
       "source": "深圳市盐田区",
@@ -2438,12 +2144,12 @@ const __INLINE_NEWS__ = {
       "regionLevel": "市"
     },
     {
-      "id": "场景供需对接-南京发布十四个场景机会邀企业“揭榜”",
+      "id": "场景文件-南京发布十四个场景机会邀企业“揭榜”",
       "title": "南京发布十四个场景机会邀企业“揭榜”",
       "summary": "5月19日，南京市应用场景对接会（文商旅体专场）举行，南京文旅集团等场景业主单位发布数据开发合作、文旅机器人等14个应用场景机会，邀请科技企业“揭榜”，推动文商旅体高价值应用场景落地。",
       "source": "南京市人民政府",
       "sourceUrl": "",
-      "category": "场景供需对接",
+      "category": "场景文件",
       "region": "南京",
       "regionLevel": "市",
       "link": "https://www.nanjing.gov.cn/njxx/202605/t20260520_5842926.html",
@@ -2470,12 +2176,12 @@ const __INLINE_NEWS__ = {
       "regionLevel": "国家"
     },
     {
-      "id": "场景供需对接-上海杨浦举办应用场景对接大会-发布百大应用场景清单",
+      "id": "场景文件-上海杨浦举办应用场景对接大会-发布百大应用场景清单",
       "title": "上海杨浦举办应用场景对接大会 发布百大应用场景清单",
       "summary": "\"创新开放·机遇杨浦\"应用场景对接大会发布涵盖智慧政务、数智城市、民生服务、产业升级、产业培育五大类别的百大应用场景清单，上线复兴场景汇365对接平台，搭建技术供给—需求对接—落地转化全链条平台。",
       "source": "央视网",
       "sourceUrl": "",
-      "category": "场景供需对接",
+      "category": "场景文件",
       "region": "上海",
       "regionLevel": "省",
       "link": "https://sh.cctv.com/2026/03/11/ARTIbByLsu8inDTpARfmwDIq260311.shtml",
@@ -2502,12 +2208,12 @@ const __INLINE_NEWS__ = {
       "regionLevel": "市"
     },
     {
-      "id": "场景清单-北京发布2026智慧城市场景创新需求(第四批)及智慧教育专项清单-启动揭榜",
+      "id": "场景文件-北京发布2026智慧城市场景创新需求(第四批)及智慧教育专项清单-启动揭榜",
       "title": "北京发布2026智慧城市场景创新需求(第四批)及智慧教育专项清单 启动揭榜",
       "summary": "北京市政务服务和数据管理局发布智慧城市第四批场景创新需求及智慧教育专项清单共20项，同步启动揭榜工作，搭建供需对接平台促进场景创新开放合作。",
       "source": "北京市政务服务和数据管理局",
       "sourceUrl": "",
-      "category": "场景清单",
+      "category": "场景文件",
       "region": "北京",
       "regionLevel": "省",
       "link": "https://banshi.beijing.gov.cn/zcjd/202607/t20260713_428636_qjd.html",
@@ -2518,12 +2224,12 @@ const __INLINE_NEWS__ = {
       "lang": "zh"
     },
     {
-      "id": "场景清单-北京亦庄发布2026年全球机遇清单-开放25个创新应用场景",
+      "id": "场景文件-北京亦庄发布2026年全球机遇清单-开放25个创新应用场景",
       "title": "北京亦庄发布2026年全球机遇清单 开放25个创新应用场景",
       "summary": "北京经开区2026高质量发展大会发布全球机遇清单，开放信息技术、生物健康、机器人、新能源、数字经济、智慧城市六大领域共25个创新应用场景，吸引产业链上下游协同创新。",
       "source": "北京经济技术开发区",
       "sourceUrl": "",
-      "category": "场景清单",
+      "category": "场景文件",
       "region": "北京",
       "regionLevel": "省",
       "link": "https://m.sohu.com/a/972684887_362042",
@@ -2534,7 +2240,7 @@ const __INLINE_NEWS__ = {
       "lang": "zh"
     },
     {
-      "id": "场景开放-多地谋划一批场景开放清单-产业链机遇加速释放",
+      "id": "场景清单-多地谋划一批场景开放清单-产业链机遇加速释放",
       "title": "多地谋划一批场景开放清单 产业链机遇加速释放",
       "summary": "2026年7月10日 · 随着更多场景向创新主体“敞开大门”，越来越多企业积极参与其中，通过真实应用场景的验证加速技术迭代与商业化落地，产业链上下游机遇和利好不断释放。 机器人租赁平台擎天 …",
       "source": "新华网",
@@ -2550,12 +2256,12 @@ const __INLINE_NEWS__ = {
       "regionLevel": "国家"
     },
     {
-      "id": "场景清单-关于发布江门市2026年度应用场景机会清单（第二批）的通知",
+      "id": "场景文件-关于发布江门市2026年度应用场景机会清单（第二批）的通知",
       "title": "关于发布江门市2026年度应用场景机会清单（第二批）的通知",
       "summary": "2026年6月11日 · 为持续深化场景创新，进一步挖掘我市应用场景资源，以场景牵引技术迭代、以应用带动产业集聚，因地制宜培育壮 …",
       "source": "江门市政府",
       "sourceUrl": "",
-      "category": "场景清单",
+      "category": "场景文件",
       "region": "其他",
       "link": "https://www.jiangmen.gov.cn/bmpd/jmsfzhggj/gggs/content/post_3504967.html",
       "image": null,
@@ -2566,12 +2272,12 @@ const __INLINE_NEWS__ = {
       "regionLevel": "其他"
     },
     {
-      "id": "场景清单-广东发布《2026年广东省新质生产力应用场景机会清单》，总投资规模超1.48万亿元",
+      "id": "场景文件-广东发布《2026年广东省新质生产力应用场景机会清单》，总投资规模超1.48万亿元",
       "title": "广东发布《2026年广东省新质生产力应用场景机会清单》，总投资规模超1.48万亿元",
       "summary": "广东省发展改革委在北京发布《2026年广东省新质生产力应用场景机会清单》，含128个亿元以上重点场景项目，总投资超1.48万亿元，覆盖数字经济、人工智能等21个重点领域，同步上线粤港澳大湾区应用场景发布厅。",
       "source": "广东省政府",
       "sourceUrl": "",
-      "category": "场景清单",
+      "category": "场景文件",
       "region": "广东",
       "link": "https://www.gd.gov.cn/gdywdt/bmdt/content/post_4934986.html",
       "image": null,
@@ -2582,12 +2288,12 @@ const __INLINE_NEWS__ = {
       "regionLevel": "省"
     },
     {
-      "id": "场景清单-国家发展改革委组织开展国家层面标志性重大应用场景项目申报-拟推出100个左右标志性场景",
+      "id": "场景项目-国家发展改革委组织开展国家层面标志性重大应用场景项目申报-拟推出100个左右标志性场景",
       "title": "国家发展改革委组织开展国家层面标志性重大应用场景项目申报 拟推出100个左右标志性场景",
       "summary": "国家发改委正会同科技部、工信部、国资委组织申报国家层面标志性重大应用场景项目，拟推出100个左右标志性场景项目并以清单发布，覆盖现代农业、清洁能源走廊、全空间无人体系、养老服务、文化旅游等方向。",
       "source": "国家发展和改革委员会",
       "sourceUrl": "",
-      "category": "场景清单",
+      "category": "场景项目",
       "region": "国家",
       "regionLevel": "国家",
       "link": "https://fgw.hubei.gov.cn/fbjd/xxgkml/jgzn/nsjg/tgc/gzdt/202603/t20260313_5891520.shtml",
@@ -2598,12 +2304,12 @@ const __INLINE_NEWS__ = {
       "lang": "zh"
     },
     {
-      "id": "场景清单-六合区三大场景入选2026年第一批南京体育消费新场景名单",
+      "id": "场景资源-六合区三大场景入选2026年第一批南京体育消费新场景名单",
       "title": "六合区三大场景入选2026年第一批南京体育消费新场景名单",
       "summary": "2026年第一批南京体育消费新场景名单公布，六合区六合龙湖天街、冶山矿小研学实践基地、桂子山石柱林景区三大特色场景入选，涵盖商业中心、户外营地、体育休闲三大类别。",
       "source": "南京市人民政府",
       "sourceUrl": "",
-      "category": "场景清单",
+      "category": "场景资源",
       "region": "南京",
       "regionLevel": "市",
       "link": "https://www.nanjing.gov.cn/gqdt/202607/t20260724_5883020.html",
@@ -2614,12 +2320,12 @@ const __INLINE_NEWS__ = {
       "lang": "zh"
     },
     {
-      "id": "场景清单-南京发布首批12个儿童友好生活场景",
+      "id": "场景文件-南京发布首批12个儿童友好生活场景",
       "title": "南京发布首批12个儿童友好生活场景",
       "summary": "5月30日，南京正式发布首批12个儿童友好生活场景，涵盖文博美育、运动休闲、商业消费、公共服务四大类别，作为2026年市政府重点民生实事项目，将“一米高度看城市”理念转化为市民可感可及的民生福祉。",
       "source": "南京市人民政府",
       "sourceUrl": "",
-      "category": "场景清单",
+      "category": "场景文件",
       "region": "南京",
       "regionLevel": "市",
       "link": "https://www.nanjing.gov.cn/zt/njcxtjcsgxdzyjrxzhcs/gxcx/202606/t20260601_5849846.html",
@@ -2630,12 +2336,12 @@ const __INLINE_NEWS__ = {
       "lang": "zh"
     },
     {
-      "id": "场景清单-陕西发布首批15个重大创新应用场景",
+      "id": "场景文件-陕西发布首批15个重大创新应用场景",
       "title": "陕西发布首批15个重大创新应用场景",
       "summary": "陕西省发展改革委举办全省创新应用场景发布大会，集中发布首批15个重大创新应用场景，涵盖先进制造、智慧能源、智慧文旅、低空经济、智慧医疗等领域。",
       "source": "腾讯新闻",
       "sourceUrl": "",
-      "category": "场景清单",
+      "category": "场景文件",
       "region": "陕西",
       "regionLevel": "省",
       "link": "https://new.qq.com/rain/a/20260723A05RVV00?refer=cp_1009",
@@ -2646,12 +2352,12 @@ const __INLINE_NEWS__ = {
       "lang": "zh"
     },
     {
-      "id": "场景清单-上海市经信委征集本市标志性重大应用场景项目-拓展至数字经济、AI4S、具身智能",
+      "id": "场景项目-上海市经信委征集本市标志性重大应用场景项目-拓展至数字经济、AI4S、具身智能",
       "title": "上海市经信委征集本市标志性重大应用场景项目 拓展至数字经济、AI4S、具身智能",
       "summary": "2026年2月上海市经信委发布征集标志性重大应用场景项目通知，将征集范围拓展至数字经济、AI4S、具身智能等方向，发挥连接技术和产业、打通研发和市场的桥梁作用。",
       "source": "人民网",
       "sourceUrl": "",
-      "category": "场景清单",
+      "category": "场景项目",
       "region": "上海",
       "regionLevel": "省",
       "link": "http://m2.people.cn/news/default.html?s=Ml8yXzQxNTI5MDU3XzEzNDc2OF8xNzczOTcyMTk0",
@@ -2662,12 +2368,12 @@ const __INLINE_NEWS__ = {
       "lang": "zh"
     },
     {
-      "id": "场景清单-上海松江发布第一批场景开放清单-18个场景向市场开放",
+      "id": "场景文件-上海松江发布第一批场景开放清单-18个场景向市场开放",
       "title": "上海松江发布第一批场景开放清单 18个场景向市场开放",
       "summary": "上海松江梳理发布第一批18个场景开放清单，覆盖绿色能源、银发经济与生命健康、AI赋能产业升级、AI+教育四大领域，欢迎企业携新技术新产品落地试点验证。",
       "source": "上海市松江区人民政府",
       "sourceUrl": "",
-      "category": "场景清单",
+      "category": "场景文件",
       "region": "上海",
       "regionLevel": "省",
       "link": "https://www.songjiang.gov.cn/zjsj/002004/002004001/20260706/4f9676bc-46bc-4319-9b50-9a92f4c5ad95.html",
@@ -2678,12 +2384,12 @@ const __INLINE_NEWS__ = {
       "lang": "zh"
     },
     {
-      "id": "场景清单-深圳发布2026年政务领域人工智能应用场景清单(第一批)-共15个场景",
+      "id": "场景文件-深圳发布2026年政务领域人工智能应用场景清单(第一批)-共15个场景",
       "title": "深圳发布2026年政务领域人工智能应用场景清单(第一批) 共15个场景",
       "summary": "深圳市政务服务和数据管理局印发2026年政务领域AI应用场景清单(第一批)，遴选15个场景覆盖辅助决策、政务服务、机关办公、社会治理、民生服务五大领域，本年度计划分三批次发布。",
       "source": "南方plus",
       "sourceUrl": "",
-      "category": "场景清单",
+      "category": "场景文件",
       "region": "深圳",
       "regionLevel": "市",
       "link": "https://www.nfnews.com/content/EynGN5Ld3Z.html",
@@ -2694,12 +2400,12 @@ const __INLINE_NEWS__ = {
       "lang": "zh"
     },
     {
-      "id": "场景清单-西安发布首批33项应用场景机会清单-以数字创新赋能高质量发展",
+      "id": "场景文件-西安发布首批33项应用场景机会清单-以数字创新赋能高质量发展",
       "title": "西安发布首批33项应用场景机会清单 以数字创新赋能高质量发展",
       "summary": "西安市发布首批33项开放应用场景机会清单，覆盖产业发展、社会民生两大类别，科技创新、产业强链、消费升级、社会民生提质四大领域。",
       "source": "腾讯新闻",
       "sourceUrl": "",
-      "category": "场景清单",
+      "category": "场景文件",
       "region": "西安",
       "regionLevel": "市",
       "link": "https://new.qq.com/rain/a/20260729A05SIV00",
@@ -2726,12 +2432,12 @@ const __INLINE_NEWS__ = {
       "lang": "zh"
     },
     {
-      "id": "场景项目-2026年科技领域十大应用场景项目案例发布_科技城高新区-...",
+      "id": "场景文件-2026年科技领域十大应用场景项目案例发布_科技城高新区",
       "title": "2026年科技领域十大应用场景项目案例发布_科技城高新区",
       "summary": "2026年3月11日 · 旨在指导如何培育新场景，为下步探索打造承载新场景项目的物理空间和开放平台奠定基础，促进新场景开放。 近 …",
       "source": "三亚市政府",
       "sourceUrl": "",
-      "category": "场景项目",
+      "category": "场景文件",
       "region": "三亚",
       "link": "https://www.sanya.gov.cn/sanyasite/kjcxw/202603/6e5b15bc29d9446aa3e0080b1a1787d8.shtml",
       "image": null,
@@ -2742,7 +2448,7 @@ const __INLINE_NEWS__ = {
       "regionLevel": "市"
     },
     {
-      "id": "场景项目-百个场景项目推出在即-打通新技术应用关键一环-新华网",
+      "id": "场景项目-百个场景项目推出在即-打通新技术应用关键一环",
       "title": "百个场景项目推出在即 打通新技术应用关键一环",
       "summary": "2026年3月18日 · 据悉，国家发展改革委将在全国确定100个左右具有引领带动作用的标志性场景项目，涉及打造多省联动清洁能源走 …",
       "source": "新华网",
@@ -2758,12 +2464,12 @@ const __INLINE_NEWS__ = {
       "regionLevel": "国家"
     },
     {
-      "id": "场景项目-南充发布首批场景供需清单及重点项目-总投资20.39亿元",
+      "id": "场景文件-南充发布首批场景供需清单及重点项目-总投资20.39亿元",
       "title": "南充发布首批场景供需清单及重点项目 总投资20.39亿元",
       "summary": "南充发布首批场景供需清单及重点项目 总投资20.39亿元|川观新闻 --> --> 拍客作品上传 APP 下载川观新闻客户端(苹果、安卓) 下载川观新闻客户端(鸿蒙) 建议使用浏览器扫码下载 微信 关注四川日报公众号 举报 中央网信办违法和…",
       "source": "川观新闻",
       "sourceUrl": "",
-      "category": "场景项目",
+      "category": "场景文件",
       "region": "南充",
       "link": "https://cbgc.scol.com.cn/news/7807632",
       "image": null,
@@ -2806,7 +2512,7 @@ const __INLINE_NEWS__ = {
       "regionLevel": "国家"
     },
     {
-      "id": "场景项目-打造从“概念”到“落地”的集中“试验田”-场景创新迈向生态-...",
+      "id": "场景案例-打造从“概念”到“落地”的集中“试验田”-场景创新迈向生态",
       "title": "打造从“概念”到“落地”的集中“试验田” 场景创新迈向生态",
       "summary": "央视网报道：全国首个城域级场景公共服务平台——南京场景服务平台正式运营，可实现对应用场景寻源、发布、展示、匹配、落地跟踪的全生命周期服务，打破分散在各领域的场景“信息孤岛”。南京已累计发布各类应用场景超5300个，落地重点场景53个，覆盖数字经济、智能制造、绿色低碳、智慧城市等10大领域，成为各地场景培育开放的标杆实践。",
       "source": "央视网",
@@ -2822,12 +2528,12 @@ const __INLINE_NEWS__ = {
       "regionLevel": "市"
     },
     {
-      "id": "场景案例-杭州湖滨商圈落地首批具身智能应用场景-打造人机共生消费标杆",
+      "id": "场景资源-杭州湖滨商圈落地首批具身智能应用场景-打造人机共生消费标杆",
       "title": "杭州湖滨商圈落地首批具身智能应用场景 打造人机共生消费标杆",
       "summary": "杭州湖滨商圈落地首批具身智能应用场景，覆盖健康辅助、娱乐互动、导览讲解、潮玩零售、餐饮服务、多语言服务、安防巡检等十大场景近二十款设备，推动具身智能规模化商业落地。",
       "source": "杭州市商务局",
       "sourceUrl": "",
-      "category": "场景案例",
+      "category": "场景资源",
       "region": "杭州",
       "regionLevel": "市",
       "link": "https://sww.hangzhou.gov.cn/col/col1229307777/art/2026/art_13ad8742c1394eee871387f1c3214182.html",
@@ -2870,12 +2576,12 @@ const __INLINE_NEWS__ = {
       "lang": "zh"
     },
     {
-      "id": "场景案例-南京南站片区AI科技新场景陆续上线",
+      "id": "场景文件-南京南站片区AI科技新场景陆续上线",
       "title": "南京南站片区AI科技新场景陆续上线",
       "summary": "南京南站片区上线一批AI科技新场景：南北广场部署自动驾驶清扫车，地下停车场推出AI智慧导视应用，网约车候车区通过智慧大屏实时了解进场车辆动态，轨道巡检机器人替代人工巡检，打造智慧南站。",
       "source": "南京市人民政府",
       "sourceUrl": "",
-      "category": "场景案例",
+      "category": "场景文件",
       "region": "南京",
       "regionLevel": "市",
       "link": "https://www.nanjing.gov.cn/bmdt/202605/t20260518_5841930.html",
@@ -2902,12 +2608,12 @@ const __INLINE_NEWS__ = {
       "lang": "zh"
     },
     {
-      "id": "场景案例-陕西以场景开放促两链深度融合",
+      "id": "支持政策-陕西以场景开放促两链深度融合",
       "title": "陕西以场景开放促两链深度融合",
       "summary": "陕西以应用场景为纽带，推动创新链与产业链深度融合，首批15个重大创新应用场景为科创企业、高校提供清晰攻关方向。",
       "source": "腾讯新闻",
       "sourceUrl": "",
-      "category": "场景案例",
+      "category": "支持政策",
       "region": "陕西",
       "regionLevel": "省",
       "link": "https://new.qq.com/rain/a/20260723A0A5F400",
@@ -2934,12 +2640,12 @@ const __INLINE_NEWS__ = {
       "lang": "zh"
     },
     {
-      "id": "场景政策-多部门密集部署人工智能应用场景（信息量密集）",
+      "id": "场景文件-多部门密集部署人工智能应用场景（信息量密集）",
       "title": "多部门密集部署人工智能应用场景（信息量密集）",
       "summary": "7月31日，国家发展改革委、工信部、海关总署等多部门在新闻发布会上围绕人工智能发展密集表态。发改委将加快推动国家人工智能应用中试基地布局建设、开放一批高价值场景；工信部优化算力资源供给；海关、交通、邮政等部门明确在口岸、出行、快递等典型场景落地AI应用，政策绑定应用场景成为AI规模化落地主线。",
       "source": "央视网",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "全国",
       "regionLevel": "国家",
       "link": "https://ysxw.cctv.cn/article.html?toc_style_id=feeds_default&t=1785512162796&item_id=10855399071019797650&channelId=1119",
@@ -2947,16 +2653,15 @@ const __INLINE_NEWS__ = {
       "pubDate": "2026-08-01T00:00:00",
       "relativeTime": "近日",
       "queryDate": "2026-08-01",
-      "lang": "zh",
-      "policyType": "支持场景生态建设"
+      "lang": "zh"
     },
     {
-      "id": "场景案例-新场景·新体验·新消费——2026企业家太阳岛年会特色文旅与新消费论坛举行",
+      "id": "场景资源-新场景·新体验·新消费——2026企业家太阳岛年会特色文旅与新消费论坛举行",
       "title": "新场景·新体验·新消费——2026企业家太阳岛年会特色文旅与新消费论坛举行",
       "summary": "以“新场景·新体验·新消费”为主题的2026企业家太阳岛年会·特色文旅与新消费创新发展论坛8月1日在哈尔滨举行。论坛整合部委与行业龙头资源，探索冰雪+避暑双轮驱动、数字技术赋能文旅消费新模式，首发“尔滨Go”文旅惠民卡，上线哈尔滨抗联红色文化基因图谱，推动文旅新消费场景竞相涌现。",
       "source": "新华网",
       "sourceUrl": "",
-      "category": "场景案例",
+      "category": "场景资源",
       "region": "哈尔滨",
       "regionLevel": "其他",
       "link": "https://www.news.cn/info/20260801/01b3cf9f2bd642c3bd9d565ba4ff50af/c.html",
@@ -2967,12 +2672,12 @@ const __INLINE_NEWS__ = {
       "lang": "zh"
     },
     {
-      "id": "场景案例-宜宾山湖天地8月1日开街-打造AI机器人消费新场景",
+      "id": "场景资源-宜宾山湖天地8月1日开街-打造AI机器人消费新场景",
       "title": "宜宾山湖天地8月1日开街 打造AI机器人消费新场景",
       "summary": "8月1日，宜宾高新南区城市地标“山湖天地”正式开街，同步亮相宜宾首个AI机器人主题公园，近20类机器人创意场景集结，机器人充当售货员、制作冰淇淋等；项目构建“公园+文体+商业+文旅”四维融合新型城市消费场景，将人工智能产业优势与消费场景深度绑定。",
       "source": "宜宾发布",
       "sourceUrl": "",
-      "category": "场景案例",
+      "category": "场景资源",
       "region": "宜宾",
       "regionLevel": "其他",
       "link": "https://www.toutiao.com/article/7668915270655672882/",
@@ -2999,12 +2704,12 @@ const __INLINE_NEWS__ = {
       "lang": "zh"
     },
     {
-      "id": "场景政策-国家发改委解读当前经济热点：服务消费新场景加速涌现",
+      "id": "场景文件-国家发改委解读当前经济热点：服务消费新场景加速涌现",
       "title": "国家发改委解读当前经济热点：服务消费新场景加速涌现",
       "summary": "国家发展改革委7月31日举行新闻发布会解读当前经济热点。数据显示上半年服务消费新场景加速涌现、服务零售额增长5.3%；下一步将深入实施就业优先战略、挖掘服务消费潜力、推动智能产品消费，增加AI手机电脑、智能穿戴、智能机器人等新一代智能终端有效供给，拓展智能体服务。",
       "source": "央广网",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "全国",
       "regionLevel": "国家",
       "link": "https://www.cnr.cn/newscenter/native/gd/20260801/t20260801_527741365.shtml",
@@ -3012,16 +2717,15 @@ const __INLINE_NEWS__ = {
       "pubDate": "2026-08-01T00:00:00",
       "relativeTime": "近日",
       "queryDate": "2026-08-01",
-      "lang": "zh",
-      "policyType": "其他"
+      "lang": "zh"
     },
     {
-      "id": "场景案例-华为深圳场景化解决方案发布会成功举办，成立“鹏城灯塔伙伴联盟”",
+      "id": "场景文件-华为深圳场景化解决方案发布会成功举办，成立“鹏城灯塔伙伴联盟”",
       "title": "华为深圳场景化解决方案发布会成功举办，成立“鹏城灯塔伙伴联盟”",
       "summary": "7月31日，华为在深圳举办“华为深圳场景化解决方案发布会”，发布“10+95+N”业务战略（10个行业、95个高频高价值场景、N个适销产品），并成立“鹏城灯塔伙伴联盟”。场景化解决方案已全面落地深圳10个重点行业，覆盖南山区人民医院、罗湖清水河智慧校园、晨昏线具身智能等150多个重点项目，并在深圳建设20多个灯塔样板点。",
       "source": "南方财经",
       "sourceUrl": "",
-      "category": "场景案例",
+      "category": "场景文件",
       "region": "深圳",
       "regionLevel": "其他",
       "link": "https://www.nfnews.com/content/G3OAkQvKor.html",
@@ -3032,12 +2736,12 @@ const __INLINE_NEWS__ = {
       "lang": "zh"
     },
     {
-      "id": "场景案例-经济政策一线微观察｜新场景，让消费更有活力",
+      "id": "场景文件-经济政策一线微观察｜新场景，让消费更有活力",
       "title": "经济政策一线微观察｜新场景，让消费更有活力",
       "summary": "新华社“经济政策一线微观察”报道，2026年“十五五”开局之年消费市场悄然变化。7月国务院批复同意《扩大消费“十五五”规划》，明确要求“培育打造消费新业态新模式新场景”。重庆、上海、北京、湖北等地消费新场景持续“上新”，沉浸式、互动式多元消费场景升级不断释放消费潜力。",
       "source": "新华社",
       "sourceUrl": "",
-      "category": "场景案例",
+      "category": "场景文件",
       "region": "北京",
       "regionLevel": "省",
       "link": "https://www.163.com/dy/article/L38V2F3V05346RC6.html",
@@ -3053,7 +2757,7 @@ const __INLINE_NEWS__ = {
       "summary": "东莞市人民政府办公室印发《东莞市加快场景培育和开放 推动“智创优品、和美宜居”新场景应用实施方案（2026—2028年）》，聚焦新领域新赛道、产业转型升级、城市智慧治理、社会民生服务四大领域19个方向开展应用场景创新，到2028年力争打造5个以上全国影响力城市名片级重大场景、培育和开放200个以上高价值场景。",
       "source": "东莞市政府",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "东莞",
       "regionLevel": "其他",
       "link": "https://www.dg.gov.cn/zwgk/zfxxgkml/szfbgs/zcwj/qtwj/content/post_4521797.html",
@@ -3061,25 +2765,7 @@ const __INLINE_NEWS__ = {
       "pubDate": "2026-08-02T00:00:00",
       "relativeTime": "近日",
       "queryDate": "2026-08-02",
-      "lang": "zh",
-      "policyType": "其他"
-    },
-    {
-      "id": "场景政策-政策与市场双轮驱动，万亿级AI消费新蓝海加速形成",
-      "title": "政策与市场双轮驱动，万亿级AI消费新蓝海加速形成",
-      "summary": "8月2日南方都市报报道，在“AI破局消费·体验驱动增长”2026高品质消费品牌TOP100主题活动上发布《2026人工智能驱动消费增长趋势洞察报告》。“人工智能+消费”已上升为国家级战略行动，“十五五”规划明确要求全面实施“人工智能+”行动，6月八部门联合发布《关于加快“人工智能+消费”发展的实施意见》，通过拓展服务消费新场景和培育产品消费新业态释放内需潜力。",
-      "source": "南方都市报",
-      "sourceUrl": "",
-      "category": "场景政策",
-      "region": "其他",
-      "regionLevel": "其他",
-      "link": "https://www.163.com/dy/article/L3AF7DVT05129QAF.html",
-      "image": null,
-      "pubDate": "2026-08-02T00:00:00",
-      "relativeTime": "近日",
-      "queryDate": "2026-08-02",
-      "lang": "zh",
-      "policyType": "其他"
+      "lang": "zh"
     },
     {
       "id": "场景资源-AI应用商业闭环逐步跑通，垂直场景迎来价值重估",
@@ -3114,12 +2800,12 @@ const __INLINE_NEWS__ = {
       "lang": "zh"
     },
     {
-      "id": "场景资源-数字技术赋能中国服务消费新图景（创新消费新场景）",
+      "id": "支持政策-数字技术赋能中国服务消费新图景（创新消费新场景）",
       "title": "数字技术赋能中国服务消费新图景（创新消费新场景）",
       "summary": "新华网报道，在数字技术赋能下中国服务消费显现智能新图景。6月商务部等8部门发布关于加快“人工智能+消费”发展的实施意见，围绕扩大智能商品消费、赋能服务消费、创新消费场景三大重点提出17条举措；AI正深度参与中国人的服务消费，定制化出行、演艺“智能管家”等消费场景持续涌现。",
       "source": "新华网",
       "sourceUrl": "",
-      "category": "场景资源",
+      "category": "支持政策",
       "region": "全国",
       "regionLevel": "国家",
       "link": "https://www.news.cn/fortune/20260802/289b88002ea042d09e90ec9ab12fde8f/c.html",
@@ -3130,12 +2816,12 @@ const __INLINE_NEWS__ = {
       "lang": "zh"
     },
     {
-      "id": "场景案例-机器人“上岗”！青岛智能科技应用场景遍地开花",
+      "id": "场景资源-机器人“上岗”！青岛智能科技应用场景遍地开花",
       "title": "机器人“上岗”！青岛智能科技应用场景遍地开花",
       "summary": "青岛市南区推动智能科技应用场景规模化落地：卡萨帝城市体验中心构建智慧居家体系；餐饮炒菜机器人进企业进社区；银河通用具身智能落地省内首批智能零售应用场景，建成国内首个啤酒主题自主服务智能文旅示范街区；依托强脑科技打造沉浸式脑机科普基地，把前沿技术转化为可体验的大众消费新场景。",
       "source": "青岛发布",
       "sourceUrl": "",
-      "category": "场景案例",
+      "category": "场景资源",
       "region": "青岛",
       "regionLevel": "其他",
       "link": "https://www.toutiao.com/article/7668860764408644139/",
@@ -3146,12 +2832,12 @@ const __INLINE_NEWS__ = {
       "lang": "zh"
     },
     {
-      "id": "场景需求-深圳龙华区集中发布2026年首批90项场景需求清单、60项能力清单",
+      "id": "场景文件-深圳龙华区集中发布2026年首批90项场景需求清单、60项能力清单",
       "title": "深圳龙华区集中发布2026年首批90项场景需求清单、60项能力清单",
       "summary": "龙华区集中发布2026年首批90项场景需求清单、60项能力清单，覆盖低空经济、智慧政务、智慧安防、智慧康养、智能建造、公共基础设施等重点领域，构建“政府引导、企业主体、市场验证”的开放式创新生态，推动技术能力与市场需求精准衔接。",
       "source": "深圳市龙华区政府",
       "sourceUrl": "",
-      "category": "场景需求",
+      "category": "场景文件",
       "region": "深圳",
       "regionLevel": "其他",
       "link": "https://www.szlhq.gov.cn/bmxxgk/tztghqyfwzx/dtxx_152509/gzdt_152510/content/post_12625704.html",
@@ -3162,12 +2848,12 @@ const __INLINE_NEWS__ = {
       "lang": "zh"
     },
     {
-      "id": "场景政策-武汉市印发《加快培育发展开源鸿蒙生态的实施方案》-到2027年落地100个开源鸿蒙示范场景",
+      "id": "场景文件-武汉市印发《加快培育发展开源鸿蒙生态的实施方案》-到2027年落地100个开源鸿蒙示范场景",
       "title": "武汉市印发《加快培育发展开源鸿蒙生态的实施方案》 到2027年落地100个开源鸿蒙示范场景",
       "summary": "武汉市人民政府办公厅印发《武汉市加快培育发展开源鸿蒙生态的实施方案》，以开源鸿蒙操作系统为技术底座，构建“场景+应用+人才+生态”四维发展体系，到2027年落地100个开源鸿蒙示范场景，打造“政务+行业+消费”三大场景矩阵。",
       "source": "长江日报·大武汉客户端",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "武汉",
       "regionLevel": "其他",
       "link": "https://m.cnhubei.com/content/2026-01/19/content_19781096.html",
@@ -3175,16 +2861,15 @@ const __INLINE_NEWS__ = {
       "pubDate": "2026-01-19T00:00:00",
       "relativeTime": "近日",
       "queryDate": "2026-01-19",
-      "lang": "zh",
-      "policyType": "支持场景生态建设"
+      "lang": "zh"
     },
     {
-      "id": "场景政策-苏州吴中区发布《全域智能场景应用开放三年行动方案》-部署1000个落地应用场景",
+      "id": "场景文件-苏州吴中区发布《全域智能场景应用开放三年行动方案》-部署1000个落地应用场景",
       "title": "苏州吴中区发布《全域智能场景应用开放三年行动方案》 部署1000个落地应用场景",
       "summary": "第二届苏州吴中具身智能机器人产业创新发展大会发布《吴中区全域智能场景应用开放三年行动方案》，实施“百千万”行动：引育100家机器人整机企业、打造1000个落地应用场景、部署10000台智能机器人，争当新技术新产品新应用“首发地”。",
       "source": "吴中企业服务",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "苏州",
       "regionLevel": "其他",
       "link": "https://www.wzqyfw.com/wzepservice/wzservplat/Apps/sme/index.php?s=%2FHome%2FArticle%2Fdetail%2Fid%2F15917%2Fclassid%2Fventure%2Fclasstype%2F2",
@@ -3192,16 +2877,15 @@ const __INLINE_NEWS__ = {
       "pubDate": "2026-01-19T00:00:00",
       "relativeTime": "近日",
       "queryDate": "2026-01-19",
-      "lang": "zh",
-      "policyType": "支持场景示范项目"
+      "lang": "zh"
     },
     {
-      "id": "场景政策-南京召开新闻发布会解读《推动新场景规模化应用-打造场景开放之城行动方案》",
+      "id": "场景文件-南京召开新闻发布会解读《推动新场景规模化应用-打造场景开放之城行动方案》",
       "title": "南京召开新闻发布会解读《推动新场景规模化应用 打造场景开放之城行动方案》",
       "summary": "南京市召开新闻发布会解读《推动新场景规模化应用 高水平打造场景开放之城行动方案(2026—2028年)》，提出未来三年每年发布应用场景清单1000个，打造10个“城市名片级”综合性重大场景、100个行业领域集成式场景。",
       "source": "新华日报·交汇点",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "南京",
       "regionLevel": "其他",
       "link": "https://www.xhby.net/content/s697711e8e4b0317791b01049.html",
@@ -3209,16 +2893,15 @@ const __INLINE_NEWS__ = {
       "pubDate": "2026-01-26T00:00:00",
       "relativeTime": "近日",
       "queryDate": "2026-01-26",
-      "lang": "zh",
-      "policyType": "与现有政策体系衔接"
+      "lang": "zh"
     },
     {
-      "id": "场景清单-江门发布《2026年度应用场景机会清单（第一批）》-动态发布场景供需清单",
+      "id": "场景文件-江门发布《2026年度应用场景机会清单（第一批）》-动态发布场景供需清单",
       "title": "江门发布《2026年度应用场景机会清单（第一批）》 动态发布场景供需清单",
       "summary": "江门市发展改革局发布《江门市2026年度应用场景机会清单（第一批）》，推动政府机关、事业单位和国有企业主动开放主业领域场景，强化场景资源开放与协同共享，并筹备开展供需对接会，用好政府首购和优先采购政策。",
       "source": "江门发布",
       "sourceUrl": "",
-      "category": "场景清单",
+      "category": "场景文件",
       "region": "江门",
       "regionLevel": "其他",
       "link": "https://new.qq.com/rain/a/20260519A02O0800",
@@ -3229,12 +2912,12 @@ const __INLINE_NEWS__ = {
       "lang": "zh"
     },
     {
-      "id": "场景清单-徐州市发布2026年度首批场景清单-50个机会72个能力赋能高质量发展",
+      "id": "场景文件-徐州市发布2026年度首批场景清单-50个机会72个能力赋能高质量发展",
       "title": "徐州市发布2026年度首批场景清单 50个机会72个能力赋能高质量发展",
       "summary": "徐州市发布2026年场景机会清单和场景能力清单（第一批），含场景机会清单50个、能力清单72个，涵盖科技创新、产业发展、民生服务、社会治理四大领域，推动新技术新产品在真实场景中验证、迭代与推广。",
       "source": "徐州市人民政府",
       "sourceUrl": "",
-      "category": "场景清单",
+      "category": "场景文件",
       "region": "徐州",
       "regionLevel": "其他",
       "link": "https://xz.gov.cn/fzlm/006011/006011002/20260206/789ad895-71b2-443e-8671-3479fdffd7f7.html",
@@ -3245,12 +2928,12 @@ const __INLINE_NEWS__ = {
       "lang": "zh"
     },
     {
-      "id": "场景清单-厦门发布首批场景“机会+能力”清单-上线场景智能服务平台",
+      "id": "场景文件-厦门发布首批场景“机会+能力”清单-上线场景智能服务平台",
       "title": "厦门发布首批场景“机会+能力”清单 上线场景智能服务平台",
       "summary": "厦门市发改委在场景创新发布会暨供需对接活动上发布首批“场景机会清单”和“场景能力清单”，围绕5大方向17个领域推出50个场景机会、37项能力，同步上线“厦门场景智能服务平台”，构建“策划—发布—对接—落地—推广”全链条闭环。",
       "source": "海峡导报",
       "sourceUrl": "",
-      "category": "场景清单",
+      "category": "场景文件",
       "region": "厦门",
       "regionLevel": "其他",
       "link": "https://www.toutiao.com/article/7621785059901358627",
@@ -3277,12 +2960,12 @@ const __INLINE_NEWS__ = {
       "lang": "zh"
     },
     {
-      "id": "场景清单-内蒙古自治区征集人工智能应用场景供需清单",
+      "id": "场景文件-内蒙古自治区征集人工智能应用场景供需清单",
       "title": "内蒙古自治区征集人工智能应用场景供需清单",
       "summary": "内蒙古政数局面向全区征集人工智能应用场景供需清单，对照《内蒙古自治区“人工智能+”行动实施方案(2026-2028年)》重点任务，围绕科技、产业、消费、民生、治理、开放合作六大领域征集需求清单与供给清单，促进供需对接。",
       "source": "内蒙古自治区政务服务与数据管理局",
       "sourceUrl": "",
-      "category": "场景清单",
+      "category": "场景文件",
       "region": "内蒙古",
       "regionLevel": "省",
       "link": "https://zsj.nmg.gov.cn/xwzx/tzgg/202604/t20260417_2891509.html",
@@ -3309,12 +2992,12 @@ const __INLINE_NEWS__ = {
       "lang": "zh"
     },
     {
-      "id": "场景政策-甘肃省印发《加快场景培育和开放-推动新场景大规模应用实施方案》",
+      "id": "场景文件-甘肃省印发《加快场景培育和开放-推动新场景大规模应用实施方案》",
       "title": "甘肃省印发《加快场景培育和开放 推动新场景大规模应用实施方案》",
       "summary": "甘肃省印发加快场景培育和开放推动新场景大规模应用实施方案，贯彻落实国办发〔2025〕37号，到2027年形成一批标志性成果，到2030年初步构建覆盖经济社会各领域、特色优势新场景规模化应用的场景生态，发布应用场景“三张清单”。",
       "source": "甘肃省人民政府办公厅",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "甘肃",
       "regionLevel": "省",
       "link": "https://linxia.gov.cn/lxz/fzlm/swtj/art/2026/art_7ac7bcb7c3b44322907c3e4e35f586b6.html",
@@ -3322,16 +3005,15 @@ const __INLINE_NEWS__ = {
       "pubDate": "2026-04-01T00:00:00",
       "relativeTime": "近日",
       "queryDate": "2026-04-01",
-      "lang": "zh",
-      "policyType": "支持场景生态建设"
+      "lang": "zh"
     },
     {
-      "id": "场景政策-北京市朝阳区就“场景驱动朝阳向新”全域全时场景培育开放政策文件征求意见",
+      "id": "场景文件-北京市朝阳区就“场景驱动朝阳向新”全域全时场景培育开放政策文件征求意见",
       "title": "北京市朝阳区就“场景驱动朝阳向新”全域全时场景培育开放政策文件征求意见",
       "summary": "朝阳区研究起草《北京市朝阳区“场景驱动朝阳向新”全域全时场景培育开放行动方案(2026—2028年)》及配套若干措施、支持政策（征求意见稿），向社会公开征求意见，全面提升首都高水平对外开放窗口区等五大功能定位。",
       "source": "中关村科技园区朝阳园管理委员会",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "朝阳",
       "regionLevel": "其他",
       "link": "https://www.smebj.cn/detail/69e9ceac9cd51417f25f2e85.html",
@@ -3339,16 +3021,15 @@ const __INLINE_NEWS__ = {
       "pubDate": "2026-04-22T00:00:00",
       "relativeTime": "近日",
       "queryDate": "2026-04-22",
-      "lang": "zh",
-      "policyType": "支持场景生态建设"
+      "lang": "zh"
     },
     {
-      "id": "场景政策-浙江省印发《加快新场景建设应用推动科技和产业高质量发展行动方案(2026-2027年)》",
+      "id": "场景文件-浙江省印发《加快新场景建设应用推动科技和产业高质量发展行动方案(2026-2027年)》",
       "title": "浙江省印发《加快新场景建设应用推动科技和产业高质量发展行动方案(2026-2027年)》",
       "summary": "浙江四部门联合印发行动方案，打造具有全国影响力、浙江辨识度的场景创新高地，构建“524X”场景体系（5大方面、24个重点领域），2026年起每年开放150个以上新场景，培育100家以上场景创新标杆企业，带动有效投资3000亿元以上。",
       "source": "浙江省发展和改革委员会",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "浙江",
       "regionLevel": "省",
       "link": "https://zj87.jxt.zj.gov.cn/zjhqpt/views/policy/detail.html?id=60848",
@@ -3356,16 +3037,15 @@ const __INLINE_NEWS__ = {
       "pubDate": "2026-04-29T00:00:00",
       "relativeTime": "近日",
       "queryDate": "2026-04-29",
-      "lang": "zh",
-      "policyType": "与现有政策体系衔接"
+      "lang": "zh"
     },
     {
-      "id": "场景政策-湖南省印发《加快场景创新和大规模应用三年行动方案(2026—2028年)》",
+      "id": "场景文件-湖南省印发《加快场景创新和大规模应用三年行动方案(2026—2028年)》",
       "title": "湖南省印发《加快场景创新和大规模应用三年行动方案(2026—2028年)》",
       "summary": "湖南印发三年行动方案，围绕先进制造、文化和科技融合、现代农业、低空经济、未来产业等14个重点领域加快场景培育和开放，到2028年累计建成场景创新试验区不少于10个、形成核心竞争力场景不少于50项，每年发布不少于100项高价值小切口场景。",
       "source": "湖南省人民政府办公厅",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "湖南",
       "regionLevel": "省",
       "link": "https://gxt.hunan.gov.cn/gxt/xxgk_71033/zcfg/dfxfg/202605/t20260509_33972619.html",
@@ -3373,16 +3053,15 @@ const __INLINE_NEWS__ = {
       "pubDate": "2026-04-03T00:00:00",
       "relativeTime": "近日",
       "queryDate": "2026-04-03",
-      "lang": "zh",
-      "policyType": "与现有政策体系衔接"
+      "lang": "zh"
     },
     {
-      "id": "场景政策-河南省印发《场景培育开放和大规模应用行动方案(2026—2028年)》",
+      "id": "场景文件-河南省印发《场景培育开放和大规模应用行动方案(2026—2028年)》",
       "title": "河南省印发《场景培育开放和大规模应用行动方案(2026—2028年)》",
       "summary": "河南印发行动方案，聚焦五大新领域新赛道和五大方面21个重点领域，建立“三张清单”动态管理机制，搭建全省一体化场景信息汇集发布平台“中原应用场景发布厅”，到2028年每年促进100项以上新技术新产品通过场景落地完成市场验证。",
       "source": "河南省人民政府办公厅",
       "sourceUrl": "",
-      "category": "场景政策",
+      "category": "场景文件",
       "region": "河南",
       "regionLevel": "省",
       "link": "https://gxj.hebi.gov.cn/ztzl/wrzwqzl/hqzc/art/2026/art_118f8f5f70ed4dd6ba075fef46ec225c.html",
@@ -3390,16 +3069,15 @@ const __INLINE_NEWS__ = {
       "pubDate": "2026-04-18T00:00:00",
       "relativeTime": "近日",
       "queryDate": "2026-04-18",
-      "lang": "zh",
-      "policyType": "与现有政策体系衔接"
+      "lang": "zh"
     },
     {
-      "id": "场景清单-无锡市发布2026年第一批场景清单-开放45个场景机会、105个场景能力",
+      "id": "场景文件-无锡市发布2026年第一批场景清单-开放45个场景机会、105个场景能力",
       "title": "无锡市发布2026年第一批场景清单 开放45个场景机会、105个场景能力",
       "summary": "无锡市场景赋能签约路演活动发布2026年第一批场景清单，聚焦人工智能、脑机接口、低空经济等前沿赛道开放45个场景机会、拿出105个场景能力，并发布数据采集场景建设计划，上线“无限锡引·场景通”智能体实现供需精准匹配。",
       "source": "澎湃新闻·无锡发改委",
       "sourceUrl": "",
-      "category": "场景清单",
+      "category": "场景文件",
       "region": "无锡",
       "regionLevel": "其他",
       "link": "https://m.thepaper.cn/baijiahao_33157559",
@@ -3410,12 +3088,12 @@ const __INLINE_NEWS__ = {
       "lang": "zh"
     },
     {
-      "id": "场景案例-新疆首个城市超级智能体落地克拉玛依-覆盖政务治理民生场景",
+      "id": "场景文件-新疆首个城市超级智能体落地克拉玛依-覆盖政务治理民生场景",
       "title": "新疆首个城市超级智能体落地克拉玛依 覆盖政务治理民生场景",
       "summary": "克拉玛依携手华为云发布“克拉玛依城市超级智能体”，成为新疆首个城市级超级智能体项目，搭载AI社工“小克”实现全天候智能政务服务，覆盖政务办理、社会治理、民生服务等场景常态化运行，96%以上政务服务事项可网上办理。",
       "source": "科技日报",
       "sourceUrl": "",
-      "category": "场景案例",
+      "category": "场景文件",
       "region": "克拉玛依",
       "regionLevel": "其他",
       "link": "https://www.stdaily.com/web/gdxw/2026-06/10/content_530029.html",
@@ -3442,12 +3120,12 @@ const __INLINE_NEWS__ = {
       "lang": "zh"
     },
     {
-      "id": "场景清单-泸州发布2026年第二批城市机会清单-200余项供需信息开放应用场景",
+      "id": "场景文件-泸州发布2026年第二批城市机会清单-200余项供需信息开放应用场景",
       "title": "泸州发布2026年第二批城市机会清单 200余项供需信息开放应用场景",
       "summary": "泸州市发布2026年第二批城市机会清单，涵盖政府需求、产业合作、国企民企协同、“揭榜挂帅”榜单四大类别共计200余项供需信息，聚焦基础设施、产业转型升级、科技创新攻关等重点领域，推动政府服务从“给政策”向“给机会”转变。",
       "source": "泸州市发展改革委",
       "sourceUrl": "",
-      "category": "场景清单",
+      "category": "场景文件",
       "region": "泸州",
       "regionLevel": "其他",
       "link": "https://jhwsj.luzhou.gov.cn/zsdt/sjdt/content_1149683",
@@ -3533,8 +3211,6 @@ let allNews = [];
 let currentCategory = '全部';
 let currentSceneLevel = null; // 场景文件下的四级筛选：国家/省/市/其他（null=全部）
 let sceneFileOpen = false;    // 场景文件子分类（国家/省/市/其他）是否展开
-let currentPolicyType = null; // 场景政策下的子分类筛选（5类+其他，null=全部）
-let policyOpen = false;       // 场景政策子分类是否展开
 let searchKeyword = '';
 let currentPeriod = 'today'; // all / today / past
 let selectedDate = null;     // 在「昨日动态」板块内选中的具体日期（默认=dataQueryDate）
@@ -3546,13 +3222,10 @@ let currentView = 'news';    // 'news' | 'interpretations'
 // 场景文件四级子分类顺序
 const SCENE_LEVELS = ['国家', '省', '市', '其他'];
 
-// 场景政策五类子分类顺序（+ 其他 兜底）
-const POLICY_TYPES = ['支持场景示范项目', '鼓励业主单位开放场景', '支持场景生态建设', '与现有政策体系衔接', '合理管理创新风险', '其他'];
-
 // 分类颜色映射（场景关键词）
 const CATEGORY_STYLES = {
   '场景文件': 'tag-ai',
-  '场景政策': 'tag-policy',
+  '支持政策': 'tag-policy',
   '场景清单': 'tag-blue',
   '场景需求': 'tag-hot',
   '场景资源': 'tag-green',
@@ -3575,7 +3248,7 @@ const CATEGORY_ICONS = {
   '场景清单': '<path d="M9 6h11M9 12h11M9 18h11"/><path d="M3.5 6 5 7.5 7 4.5M3.5 12 5 13.5 7 10.5M3.5 18 5 19.5 7 16.5"/>',
   '场景项目': '<path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/>',
   '场景文件': '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/>',
-  '场景政策': '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5"/><path d="M8.5 12.5l1.8 1.8 3.2-3.6"/>',
+  '支持政策': '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5"/><path d="M8.5 12.5l1.8 1.8 3.2-3.6"/>',
   '场景案例': '<path d="M12 2l2.4 5.4L20 8.2l-4 4 1 5.8L12 15.8 7 18l1-5.8-4-4 5.6-.8z"/>'
 };
 
@@ -3675,10 +3348,15 @@ function selectView(view) {
     currentCategory = '全部';
     currentSceneLevel = null;
     sceneFileOpen = false;
-    currentPolicyType = null;
-    policyOpen = false;
   }
   render();
+}
+
+/**
+ * 点击侧栏「场景动态持续关注」大按钮：切回动态视图并归位到「全部」
+ */
+function selectNewsView() {
+  selectView('news');
 }
 
 /**
@@ -3693,7 +3371,7 @@ function getRealCategories() {
  * - counts：各分类数量（按当前时期范围）
  * - levelCounts：场景文件下四级子分类数量
  */
-function renderSidebar(cats, counts, levelCounts, policyTypeCounts) {
+function renderSidebar(cats, counts, levelCounts) {
   const nav = document.getElementById('sidebarNav');
   let html = '';
 
@@ -3720,29 +3398,6 @@ function renderSidebar(cats, counts, levelCounts, policyTypeCounts) {
                       <span class="sc-dot"></span>
                       <span class="sc-label">${lv}</span>
                       <span class="sc-count">${lc}</span>
-                    </button>`;
-        });
-        html += `</div>`;
-      }
-    } else if (cat === '场景政策') {
-      // 父级项：带展开箭头（与场景文件一致）
-      const popen = policyOpen && currentCategory === '场景政策';
-      html += `<button class="sidebar-item ${currentCategory === cat ? 'active' : ''} ${popen ? 'open' : ''}"
-                data-cat="${cat}" onclick="selectCategory('${cat}')">
-                <span class="side-label">${catIcon(cat)}<span>${cat}</span></span>
-                <span class="side-right">
-                  <span class="side-count">${count}</span>
-                  <svg class="side-chevron ${popen ? 'open' : ''}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
-                </span>
-              </button>`;
-      if (popen) {
-        html += `<div class="scene-children">`;
-        POLICY_TYPES.forEach(pt => {
-          const pc = (policyTypeCounts && policyTypeCounts[pt]) || 0;
-          html += `<button class="scene-child ${currentPolicyType === pt ? 'active' : ''}" data-pt="${pt}" onclick="selectPolicyType('${pt}')">
-                      <span class="sc-dot"></span>
-                      <span class="sc-label">${pt}</span>
-                      <span class="sc-count">${pc}</span>
                     </button>`;
         });
         html += `</div>`;
@@ -3785,31 +3440,10 @@ function selectCategory(cat) {
       policyOpen = false;
       currentPolicyType = null;
     }
-  } else if (cat === '场景政策') {
-    if (currentCategory === '场景政策') {
-      if (currentPolicyType) {
-        // 已选中某子分类 → 回到「全部场景政策」，保持展开
-        currentPolicyType = null;
-        policyOpen = true;
-      } else {
-        // 未选子分类 → 切换展开/收起
-        policyOpen = !policyOpen;
-        if (!policyOpen) currentCategory = '全部';
-      }
-    } else {
-      // 从其他分类切换过来 → 选中并展开
-      currentCategory = '场景政策';
-      policyOpen = true;
-      currentPolicyType = null;
-      sceneFileOpen = false;
-      currentSceneLevel = null;
-    }
   } else {
     currentCategory = (currentCategory === cat) ? '全部' : cat;
     sceneFileOpen = false;
     currentSceneLevel = null;
-    policyOpen = false;
-    currentPolicyType = null;
   }
   render();
 }
@@ -3819,14 +3453,6 @@ function selectCategory(cat) {
  */
 function selectSceneLevel(lv) {
   currentSceneLevel = (currentSceneLevel === lv) ? null : lv;
-  render();
-}
-
-/**
- * 场景政策子分类筛选（5类+其他）；再次点击当前项取消，回到全部场景政策
- */
-function selectPolicyType(pt) {
-  currentPolicyType = (currentPolicyType === pt) ? null : pt;
   render();
 }
 
@@ -3935,9 +3561,11 @@ function render() {
   // 视图切换：动态 vs 长城战略咨询深度解读
   const newsView = document.getElementById('newsView');
   const interpView = document.getElementById('interpView');
+  const newsBtn = document.getElementById('newsBtn');
   const interpBtn = document.getElementById('interpBtn');
   if (newsView) newsView.style.display = currentView === 'news' ? '' : 'none';
   if (interpView) interpView.style.display = currentView === 'interpretations' ? '' : 'none';
+  if (newsBtn) newsBtn.classList.toggle('active', currentView === 'news');
   if (interpBtn) interpBtn.classList.toggle('active', currentView === 'interpretations');
 
   if (currentView === 'interpretations') {
@@ -3985,15 +3613,7 @@ function render() {
     levelCounts[k] = (levelCounts[k] || 0) + 1;
   });
 
-  // 3.6) 场景政策子分类数量（基于当前范围、且 category=场景政策）
-  const policyTypeCounts = {};
-  POLICY_TYPES.forEach(pt => { policyTypeCounts[pt] = 0; });
-  scope.filter(i => i.category === '场景政策').forEach(i => {
-    const k = i.policyType || '其他';
-    policyTypeCounts[k] = (policyTypeCounts[k] || 0) + 1;
-  });
-
-  renderSidebar(cats, counts, levelCounts, policyTypeCounts);
+  renderSidebar(cats, counts, levelCounts);
 
   // 4) 卡片 = 范围 ∩ 分类 ∩ 搜索
   let filtered = scope;
@@ -4002,10 +3622,6 @@ function render() {
   // 场景文件四级子筛选（国家 / 省 / 市 / 其他）
   if (currentCategory === '场景文件' && currentSceneLevel) {
     filtered = filtered.filter(i => (i.regionLevel || '其他') === currentSceneLevel);
-  }
-  // 场景政策子筛选（5类+其他）
-  if (currentCategory === '场景政策' && currentPolicyType) {
-    filtered = filtered.filter(i => (i.policyType || '其他') === currentPolicyType);
   }
 
   const todayItems = filtered
@@ -4103,7 +3719,6 @@ function cardHtml(item, idx) {
       <div class="news-card-tags">
         <span class="news-card-tag ${tagClass}">${catIcon(item.category)}${item.category}</span>
         <span class="news-card-region">${escapeHtml(region)}</span>
-        ${item.policyType ? `<span class="news-card-region">${escapeHtml(item.policyType)}</span>` : ''}
       </div>
       <div class="news-card-title">${escapeHtml(item.title)}</div>
       ${item.summary ? `<div class="news-card-summary">${escapeHtml(item.summary)}</div>` : ''}
