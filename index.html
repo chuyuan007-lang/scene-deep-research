@@ -347,6 +347,10 @@ body {
   line-height: 1.35;
 }
 
+.sidebar-interpret .side-label .side-text {
+  white-space: nowrap;
+}
+
 .sidebar-interpret .cat-icon {
   width: 22px;
   height: 22px;
@@ -1214,7 +1218,7 @@ body {
       <button class="sidebar-interpret" id="newsBtn" type="button" onclick="selectNewsView()">
         <span class="side-label">
           <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></svg>
-          <span>场景动态<br>持续关注</span>
+          <span class="side-text">场景动态 持续关注</span>
         </span>
       </button>
       <nav class="sidebar-nav" id="sidebarNav">
@@ -1224,7 +1228,7 @@ body {
       <button class="sidebar-interpret" id="interpBtn" type="button" onclick="selectView('interpretations')">
         <span class="side-label">
           <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
-          <span>长城战略咨询<br>深度解读</span>
+          <span class="side-text">长城战略咨询 深度解读</span>
         </span>
       </button>
       <div class="sidebar-tip">点击上方按钮切换查看</div>
@@ -1311,12 +1315,12 @@ body {
 
   <script>
 const __INLINE_NEWS__ = {
-  "lastUpdate": "2026-08-03T09:24:56.700Z",
-  "lastUpdateFormatted": "2026/8/3 17:24:56",
+  "lastUpdate": "2026-08-03T10:05:49.664Z",
+  "lastUpdateFormatted": "2026/8/3 18:05:49",
   "queryDate": "2026-08-02",
   "totalSources": 7,
   "failedSources": 0,
-  "totalItems": 132,
+  "totalItems": 129,
   "filterHint": "每日检索「昨日（2026-08-02）0:00-23:59」官方场景类实际动态，并保留历史往日沉淀；含场景资源 / 需求 / 开放 / 供需对接 / 清单 / 项目 / 政策，不含专家解读类内容",
   "categories": [
     "场景资源",
@@ -2095,23 +2099,6 @@ const __INLINE_NEWS__ = {
       "policyType": "支持场景生态建设"
     },
     {
-      "id": "场景案例-《场景创新》杂志",
-      "title": "《场景创新》杂志",
-      "summary": "2026年3月24日 · 中国科技网是以科技新闻和信息传播为主业的综合性网络媒体。 2010年，中央外宣办核准网站名称为“中国科技网”，并视同国家重点新闻网站进行管理，日均网页访问量达百万级别。",
-      "source": "科技日报",
-      "sourceUrl": "",
-      "category": "场景案例",
-      "region": "全国",
-      "link": "https://www.stdaily.com/web/cjgxdj/node_1222.html",
-      "image": null,
-      "pubDate": "2026-03-24T08:00:00",
-      "relativeTime": "4个月前",
-      "queryDate": "2026-03-24",
-      "lang": "zh",
-      "regionLevel": "国家",
-      "policyType": null
-    },
-    {
       "id": "场景资源-东莞面向全国全球开放场景资源",
       "title": "东莞面向全国全球开放场景资源",
       "summary": "搭建科技与需求深度对接平台,面向全国全球开放场景资源,推动场景创新赋能高质量发展,加快建设“智创优品、和美宜居”的现代...",
@@ -2282,12 +2269,12 @@ const __INLINE_NEWS__ = {
       "policyType": null
     },
     {
-      "id": "场景案例-北京发布2026智慧城市场景创新需求(第四批)及智慧教育专项清单-启动揭榜",
+      "id": "场景需求-北京发布2026智慧城市场景创新需求(第四批)及智慧教育专项清单-启动揭榜",
       "title": "北京发布2026智慧城市场景创新需求(第四批)及智慧教育专项清单 启动揭榜",
       "summary": "北京市政务服务和数据管理局发布智慧城市第四批场景创新需求及智慧教育专项清单共20项，同步启动揭榜工作，搭建供需对接平台促进场景创新开放合作。",
       "source": "北京市政务服务和数据管理局",
       "sourceUrl": "",
-      "category": "场景案例",
+      "category": "场景需求",
       "region": "北京",
       "regionLevel": "省",
       "link": "https://banshi.beijing.gov.cn/zcjd/202607/t20260713_428636_qjd.html",
@@ -2588,12 +2575,12 @@ const __INLINE_NEWS__ = {
       "policyType": "鼓励业主单位开放场景"
     },
     {
-      "id": "场景案例-场景创新释放“超能力”",
+      "id": "场景资源-场景创新释放“超能力”",
       "title": "场景创新释放“超能力”",
       "summary": "2026年2月25日 · 当人工智能走进城市治理的每一个角落，当氢能技术在高速路网落地应用，当量子科技从实验室走向民生场景……一场以场景创新为核心的变革，正在中国大地上多点开花、纵深推进。 …",
       "source": "新华网",
       "sourceUrl": "",
-      "category": "场景案例",
+      "category": "场景资源",
       "region": "全国",
       "link": "https://www.news.cn/liangzi/20260225/304eabd2fc93492281e67770bbdf60f9/c.html",
       "image": null,
@@ -2869,40 +2856,6 @@ const __INLINE_NEWS__ = {
       "region": "东莞",
       "regionLevel": "市",
       "link": "https://www.dg.gov.cn/zwgk/zfxxgkml/szfbgs/zcwj/qtwj/content/post_4521797.html",
-      "image": null,
-      "pubDate": "2026-08-02T00:00:00",
-      "relativeTime": "近日",
-      "queryDate": "2026-08-02",
-      "lang": "zh",
-      "policyType": null
-    },
-    {
-      "id": "场景资源-AI应用商业闭环逐步跑通，垂直场景迎来价值重估",
-      "title": "AI应用商业闭环逐步跑通，垂直场景迎来价值重估",
-      "summary": "开源证券计算机行业研报指出，2026年上半年成为AI应用产业关键转折点，大模型商业化从技术验证迈入收入兑现阶段，AI深度嵌入客户服务、市场营销、软件开发等核心工作流，具备场景卡位优势、数据积累壁垒的垂直应用厂商将迎来业绩加速释放与估值重构双重机遇。",
-      "source": "雪球",
-      "sourceUrl": "",
-      "category": "场景资源",
-      "region": "其他",
-      "regionLevel": "其他",
-      "link": "https://xueqiu.com/8471508548/403311028",
-      "image": null,
-      "pubDate": "2026-08-02T00:00:00",
-      "relativeTime": "近日",
-      "queryDate": "2026-08-02",
-      "lang": "zh",
-      "policyType": null
-    },
-    {
-      "id": "场景资源-AI应用正从“概念验证”驶入“规模化兑现”",
-      "title": "AI应用正从“概念验证”驶入“规模化兑现”",
-      "summary": "2026年中国AI应用市场预计突破1140亿元，同比增长35%，其中企业级解决方案占比71%。企业和政府端订单占比接近90%，AI应用业绩增量主要来自To B和To G场景；AI企业办公与数字化SaaS、AI营销、AI政务信息化成为率先兑现的第一梯队。",
-      "source": "雪球",
-      "sourceUrl": "",
-      "category": "场景资源",
-      "region": "其他",
-      "regionLevel": "其他",
-      "link": "https://xueqiu.com/8678142904/403266542",
       "image": null,
       "pubDate": "2026-08-02T00:00:00",
       "relativeTime": "近日",
@@ -3575,14 +3528,14 @@ const __INLINE_NEWS__ = {
     }
   ],
   "categoryCounts": {
-    "场景资源": 16,
-    "场景需求": 1,
+    "场景资源": 15,
+    "场景需求": 2,
     "场景供需对接": 2,
     "场景清单": 8,
     "场景项目": 5,
     "支持政策": 65,
     "场景文件": 28,
-    "场景案例": 7
+    "场景案例": 4
   }
 };
 const __INLINE_INTERPS__ = {
