@@ -3781,8 +3781,8 @@ let currentPolicyType = null; // 支持政策下的五类筛选（null=全部）
 let policyOpen = false;       // 支持政策子分类是否展开
 let searchKeyword = '';
 let currentPeriod = 'today'; // all / today / past
-let selectedDate = null;     // 在「昨日动态」板块内选中的具体日期（默认=dataQueryDate）
-let dataQueryDate = '';      // 后端返回的「昨日」日期（YYYY-MM-DD）
+let selectedDate = null;     // 在「昨日动态」板块内选中的追溯日期（默认=昨日 T-1）
+let dataQueryDate = '';      // 昨日锚点 = 当前日期 - 1（客户端真实日期计算，不依赖 news.json 的 queryDate）
 let dataCategories = [];     // 后端分类列表（含「全部」，渲染时剔除）
 let allInterps = [];         // 长城战略咨询深度解读文章列表
 let currentView = 'news';    // 'news' | 'interpretations'
@@ -3861,6 +3861,11 @@ function addDays(iso, n) {
   return `${y}-${m}-${day}`;
 }
 
+// 取浏览器本地当前日期（YYYY-MM-DD），用于计算「昨日 = 当前日期-1」
+function ymdLocal(d) {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
 function byNewest(a, b) {
   return new Date(b.pubDate || 0) - new Date(a.pubDate || 0);
 }
@@ -3877,7 +3882,8 @@ async function loadNews(isRefresh = false) {
     const data = await res.json();
 
     allNews = data.items || [];
-    dataQueryDate = data.queryDate || '';
+    // 昨日动态锚点：始终为「当前日期 - 1」（客户端真实日期，避免依赖可能滞后的 news.json queryDate）
+    dataQueryDate = addDays(ymdLocal(new Date()), -1);
     dataCategories = data.categories || [];
 
     // 确保默认选中「全部」并同步按钮高亮
@@ -4130,7 +4136,7 @@ function selectDate(date) {
 }
 
 /**
- * 渲染「昨日动态」右侧的 3 个前溯日期按钮
+ * 渲染「昨日动态」板块内的 3 个追溯按钮：昨日-1、昨日-2、昨日-3（即 T-2、T-3、T-4）
  */
 function renderDateNav() {
   const nav = document.getElementById('todayDateNav');
