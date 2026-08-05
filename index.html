@@ -1314,8 +1314,8 @@ body {
 
   <script>
 const __INLINE_NEWS__ = {
-  "lastUpdate": "2026-08-05T01:17:51.731Z",
-  "lastUpdateFormatted": "2026/8/5 09:17:51",
+  "lastUpdate": "2026-08-05T04:14:08.252Z",
+  "lastUpdateFormatted": "2026/8/5 12:14:08",
   "queryDate": "2026-08-04",
   "totalSources": 7,
   "failedSources": 0,
@@ -1324,12 +1324,9 @@ const __INLINE_NEWS__ = {
   "categories": [
     "全部",
     "场景文件",
-    "场景政策",
-    "场景资源",
-    "场景需求",
     "场景供需对接",
     "场景清单",
-    "场景项目",
+    "支持政策",
     "场景案例"
   ],
   "items": [
@@ -2860,7 +2857,8 @@ const __INLINE_NEWS__ = {
       "pubDate": "2026-08-04T00:00:00",
       "relativeTime": "昨日",
       "queryDate": "2026-08-04",
-      "lang": "zh"
+      "lang": "zh",
+      "policyType": null
     },
     {
       "id": "场景案例-潍坊市创新工程造价人工智能应用场景",
@@ -3882,7 +3880,14 @@ const __INLINE_NEWS__ = {
       "queryDate": "2026-08-04",
       "lang": "zh"
     }
-  ]
+  ],
+  "categoryCounts": {
+    "场景文件": 29,
+    "场景供需对接": 5,
+    "场景清单": 35,
+    "支持政策": 52,
+    "场景案例": 29
+  }
 };
 const __INLINE_INTERPS__ = {
   "lastUpdate": "2026-08-04T01:32:03.989Z",
@@ -4099,16 +4104,13 @@ const SCENE_LEVELS = ['国家', '省', '市', '其他'];
 const POLICY_TYPES = ['支持场景示范项目', '鼓励业主单位开放场景', '支持场景生态建设', '与现有政策体系衔接', '合理管理创新风险'];
 
 // 分类颜色映射（场景关键词）
+// 自动化【四】定义的5类，各配不同颜色以便按钮区分
 const CATEGORY_STYLES = {
-  '场景文件': 'tag-ai',
-  '支持政策': 'tag-policy',
-  '场景清单': 'tag-blue',
-  '场景需求': 'tag-hot',
-  '场景资源': 'tag-green',
-  '场景项目': 'tag-orange',
-  '场景供需对接': 'tag-ai',
-  '场景案例': 'tag-case',
-  '场景发布': 'tag-green'
+  '场景文件': 'tag-ai',         // 蓝紫：官方文件/方案/规划
+  '场景供需对接': 'tag-orange',  // 橙：对接/揭榜/推介/路演/签约/合作
+  '场景清单': 'tag-blue',        // 蓝：机会/需求/能力清单
+  '支持政策': 'tag-policy',      // 紫：扶持/资金/人才/举措
+  '场景案例': 'tag-case'         // 青：落地实践案例
 };
 
 function getTagClass(cat) {
@@ -4118,12 +4120,9 @@ function getTagClass(cat) {
 // 各分类线性图标（24x24）
 const CATEGORY_ICONS = {
   '全部': '<path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/>',
-  '场景资源': '<path d="M21 16V8l-9-5-9 5v8l9 5 9-5Z"/><path d="M3.3 7 12 12l8.7-5M12 22V12"/>',
-  '场景需求': '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.6"/>',
+  '场景文件': '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/>',
   '场景供需对接': '<path d="M7 7h11l-3-3M17 17H6l3 3"/>',
   '场景清单': '<path d="M9 6h11M9 12h11M9 18h11"/><path d="M3.5 6 5 7.5 7 4.5M3.5 12 5 13.5 7 10.5M3.5 18 5 19.5 7 16.5"/>',
-  '场景项目': '<path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/>',
-  '场景文件': '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/>',
   '支持政策': '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5"/><path d="M8.5 12.5l1.8 1.8 3.2-3.6"/>',
   '场景案例': '<path d="M12 2l2.4 5.4L20 8.2l-4 4 1 5.8L12 15.8 7 18l1-5.8-4-4 5.6-.8z"/>'
 };
